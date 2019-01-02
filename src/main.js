@@ -2,6 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import './assets/css/init.css'
+import './assets/css/share.css'
+import './assets/font-awesome-4.7.0/css/font-awesome.min.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import App from './App'
@@ -15,9 +17,9 @@ Vue.use(MintUI);
 // Vue.use(validate);
 
 // import Vue from 'vue'
-import { Header,Field } from 'mint-ui';
-Vue.component(Field.name, Field);
-Vue.component(Header.name, Header);
+// import { Header,Field } from 'mint-ui';
+// Vue.component(Field.name, Field);
+// Vue.component(Header.name, Header);
 
 Vue.prototype.cfg = cfg;
 Vue.prototype.comm = comm;

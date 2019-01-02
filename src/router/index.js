@@ -6,10 +6,16 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    
     {
       path: '/',
       name: 'Index',
       component: resolve => require(['@/pages/index/index'],resolve),
+    },
+    {
+      path: '/hello',
+      name: 'HelloWorld',
+      component: resolve => require(['@/pages/jyj/HelloWorld'],resolve),
     },
     {
       path: '/login',

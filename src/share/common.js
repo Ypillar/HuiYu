@@ -2,10 +2,12 @@
 import Vue from 'vue'
 //import cfg from 'static/config'
 import router from '../router';
+import { Toast,MessageBox  } from 'mint-ui';
 // import { Loading } from 'element-ui';
 
 // let loadingInstance = null;
 export default{
+    // http
     httpPost:function(url,data,success,error,noMask,silent){
         var that = this;
         if(!noMask)this.showMask();
@@ -41,46 +43,69 @@ export default{
     httpGet:function(url,data,success,error){
         Vue.http.get(cfg.httpAddr+url,data).then(success).catch(error);
     },
+
+    // 提示信息
+    msg:txt=>{
+        Toast({
+            message: txt,
+        })
+    },
+    //
     msgSuccess:txt=>{
-        Vue.prototype.$message({message: txt,type: 'success'})
+        Toast({
+            message: txt||'操作成功',
+            iconClass: 'mint-toast-icon mintui mintui-success msg-icon-size',
+            // duration:-1
+        });
     },
     msgWarning:txt=>{
-        Vue.prototype.$message({message: txt,type: 'warning'})
+        Toast({
+            message: txt,
+            iconClass: 'mint-toast-icon mintui mintui-field-warning msg-icon-size',
+            // duration:-1
+        });
     },
     msgError:txt=>{
-        Vue.prototype.$message.error(txt);
+        Toast({
+            message: txt,
+            iconClass: 'fa fa-times msg-error-icon-size',
+            // duration:-1
+        });
     },
-    confirm:(txt,ok,cancel)=>{
-        Vue.prototype.$confirm(txt, '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(() => {
-            ok && ok();
-          }).catch(() => {
-            cancel && cancel();   
-          });
+    msgBox:(txt,title)=>{
+        //MessageBox(title||'提示', txt);
+        return MessageBox.alert(txt,title||'提示');
     },
+    confirm:(txt,title)=>{
+        return MessageBox.confirm(txt,title||"提示")
+    },
+
+    // 登录状态
     validLogin:function(){
         this.debug('validLogin: ',sessionStorage.getItem(cfg.sessionKey));
         if(!sessionStorage.getItem(cfg.sessionKey)){
             router.push('/login');
         }
     },
+
+    // 其他类型工具函数
     debug:function(){
         if(cfg.debug)console.debug.apply(console,arguments);
     },
-    getCookie: function (cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        //console.log(cname,document.cookie)
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1);
-            if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-        }
-        return "";
-    },
+
+    
+
+    // getCookie: function (cname) {
+    //     var name = cname + "=";
+    //     var ca = document.cookie.split(';');
+    //     //console.log(cname,document.cookie)
+    //     for (var i = 0; i < ca.length; i++) {
+    //         var c = ca[i];
+    //         while (c.charAt(0) == ' ') c = c.substring(1);
+    //         if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+    //     }
+    //     return "";
+    // },
     // showMask:function(msg='请稍后'){
     //     loadingInstance = Loading.service({ fullscreen: true,text:msg,background:'rgba(0, 0, 0, 0.7)' });
     //     return true;

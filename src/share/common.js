@@ -94,6 +94,13 @@ export default{
     getLoginInfo:function(){
         return cache.get(cache.SESSION_CACHE,cfg.sessionKey);
     },
+    getToken:function(){
+        if(this.isLogin()){
+            return this.getLoginInfo().token
+        }else{
+            return "";
+        }
+    },
     
 
     // 其他类型工具函数

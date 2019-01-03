@@ -128,10 +128,6 @@ export default{
           var clientWidth = (document.body.clientWidth>document.documentElement.clientWidth)?document.body.clientWidth:document.documentElement.clientWidth;
         }
         return clientWidth;
-      },
-    
-      getWorkAreaHeight(){
-        return this.getClientHeight() - (this.setting.indexFooterHeight+this.setting.indexHeaderHeight);
       }
 
     // getCookie: function (cname) {

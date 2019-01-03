@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" ref="refpage">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
@@ -7,12 +7,16 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted(){
+    this.$refs.refpage.style.height=this.comm.getClientHeight()+"px";
+  }
 }
 </script>
 
 <style>
 #app {
+  overflow: auto;
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

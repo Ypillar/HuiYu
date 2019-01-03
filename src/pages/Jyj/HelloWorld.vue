@@ -1,34 +1,45 @@
 <template>
   <div id="app">
-    <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
-      <router-link to="/" slot="left"> 
-        <mt-button icon="back">返回</mt-button>
-      </router-link>
-      <mt-button icon="more" slot="right"></mt-button>
-    </mt-header>
-      <mt-field label="captcha" v-model="captcha">
-        <img src="@/assets/logo.png"  >
-      </mt-field>
-    <!-- <router-link to="/hello2">
-      
-       
-    </router-link> -->
-    <mt-button @click.native="handleClick1">按钮</mt-button>
-    <mt-button @click.native="handleClick">按钮</mt-button>
-     <!-- <mt-button @click.native="qc">请求按钮</mt-button> -->
-    123123144234234232
 
-    <test-c><div slot="aa">111</div><div slot="bb">aaa</div></test-c>
-    <test-c>222</test-c>
-    <test-c>333</test-c>
-<i class="fa fa-camera-retro fa-5x"></i>
-    <i class="mint-toast-icon mintui mintui-more"></i>
-    <i class="mint-toast-icon mintui mintui-back"></i>
-    <i class="mint-toast-icon mintui mintui-search"></i>
-    <i class="mint-toast-icon mintui mintui-field-error"></i>
-    <i class="mint-toast-icon mintui mintui-field-warning"></i>
-    <i class="mint-toast-icon mintui mintui-success"></i>
-    <i class="mint-toast-icon mintui mintui-field-success"></i>
+    <!-- 结果展示 -->
+    <result-page v-if="showResult" image="zhfuchneggong_qs@2x.png" title="操作成功" sub-title="¥1000.00" desc="参课信息已通过短信告知了Ta，请提醒本人携带好证件准时参课">
+      <div slot="btn">
+        <c-button title="回到首页" theme="light"></c-button>
+        <c-button title="重新编辑" theme="dark"></c-button>
+      </div>
+    </result-page>
+
+
+    <div v-if="!showResult">
+      <title-bar title="" back="">
+        <div slot="right">
+          <!-- 右上角内容放这里 -->
+        </div>
+      </title-bar>
+        <mt-field label="captcha" v-model="captcha">
+          <img src="@/assets/logo.png"  >
+        </mt-field>
+      <!-- <router-link to="/result?image=zhfuchneggong_qs@2x.png&title=操作成功&subTitle=¥1000.00&desc=参课信息已通过短信告知了Ta，请提醒本人携带好证件准时参课">
+        跳转到结果页面
+      </router-link> -->
+      <mt-button @click.native="handleClick1">按钮</mt-button>
+      <mt-button @click.native="handleClick">按钮</mt-button>
+      <!-- <mt-button @click.native="qc">请求按钮</mt-button> -->
+      123123144234234232
+
+      <test-c><div slot="aa">111</div><div slot="bb">aaa</div></test-c>
+      <test-c>222</test-c>
+      <test-c>333</test-c>
+      <i class="fa fa-camera-retro fa-5x"></i>
+      <i class="mint-toast-icon mintui mintui-more"></i>
+      <i class="mint-toast-icon mintui mintui-back"></i>
+      <i class="mint-toast-icon mintui mintui-search"></i>
+      <i class="mint-toast-icon mintui mintui-field-error"></i>
+      <i class="mint-toast-icon mintui mintui-field-warning"></i>
+      <i class="mint-toast-icon mintui mintui-success"></i>
+      <i class="mint-toast-icon mintui mintui-field-success"></i>
+    </div>
+    
   </div>
 </template>
 
@@ -36,6 +47,7 @@
 
 import Vue from 'vue'
 import TestC from './TestC';
+
 // import api from './../serveci/dataServeci';
 //Vue.component(TestC.name, TestC);
 
@@ -45,13 +57,15 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      showResult:true,
       captcha:"",
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
     handleClick1:function(){
-      this.comm.msgSuccess()
+      // this.comm.msgSuccess()
+      this.showResult=true;
     },
     handleClick: function() {
       this.$toast('Hello world!');
@@ -81,7 +95,9 @@ export default {
     // });
   },
   components:{
-    TestC
+    TestC,
+    // resultPage
+    // titleBar
   }
 }
 </script>

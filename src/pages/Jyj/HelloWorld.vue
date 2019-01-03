@@ -54,10 +54,11 @@ export default {
       this.comm.msgSuccess()
     },
     handleClick: function() {
-      //this.$toast('Hello world!');
+      this.$toast('Hello world!');
       // this.comm.msgSuccess();
+      this.comm.msg("操作警告");
       //this.comm.msgWarning("操作警告");
-      this.comm.msgError("加速动力开发就")
+      // this.comm.msgError("加速动力开发就")
       //this.comm.msgBox("sdfsf");
       // this.comm.msgBox("sdfsf").then(()=>{
       //   //alert(1)

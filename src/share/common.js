@@ -2,6 +2,7 @@
 import Vue from 'vue'
 //import cfg from 'static/config'
 import router from '../router';
+import cache from './cache';
 import { Toast,MessageBox  } from 'mint-ui';
 // import { Loading } from 'element-ui';
 
@@ -47,7 +48,7 @@ export default{
     // 提示信息
     msg:txt=>{
         Toast({
-            message: txt,
+            message: txt
         })
     },
     //
@@ -81,12 +82,19 @@ export default{
     },
 
     // 登录状态
-    validLogin:function(){
-        this.debug('validLogin: ',sessionStorage.getItem(cfg.sessionKey));
-        if(!sessionStorage.getItem(cfg.sessionKey)){
-            router.push('/login');
-        }
+    // 判断是否登录，boolean
+    isLogin:function(){
+        return cache.exists(cache.SESSION_CACHE,cfg.sessionKey);
     },
+    // 登录后设置登录状态
+    setLoginInfo:function(userInfo){
+        cache.set(cache.SESSION_CACHE,cfg.sessionKey,userInfo);
+    },
+    // 获取登录的用户信息
+    getLoginInfo:function(){
+        return cache.get(cache.SESSION_CACHE,cfg.sessionKey);
+    },
+    
 
     // 其他类型工具函数
     debug:function(){

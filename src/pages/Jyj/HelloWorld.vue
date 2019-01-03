@@ -18,8 +18,9 @@
         </div>
       </title-bar>
 
-
-      <workflow v-bind:group="[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}]" select="1"></workflow>
+      <div style="padding:30px;">
+        <workflow v-bind:group="[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}]" select="1"></workflow>
+      </div>
 
         <mt-field label="captcha" v-model="captcha">
           <img src="@/assets/logo.png"  >

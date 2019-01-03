@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="page center">
+  <div id="app" class="page center" ref="refpage">
     <div class="wleft inline-block relative">
         <div class="point main-bg-color absolute" style="width:6px;height:6px;top:5px;"></div>
         <div class="point main-bg-color absolute" style="width:12px;height:12px;right:5px;bottom:35px;"></div>
@@ -60,7 +60,8 @@ export default {
       this.scount = p;
       console.log(this.scount)
     //   this.width=(100/this.group.length-1);
-      this.$refs.refmiddle.style.width=this.comm.getClientWidth()-70+"px";
+    // console.log(111,,this.comm.getClientWidth())
+      this.$refs.refmiddle.style.width=this.$refs.refpage.offsetWidth-70+"px";
       let reduce=48*this.group.length;
     //   for(let a=0;a<this.$refs.refmiddle.children.length;a++){
     //       if((this.$refs.refmiddle.children[a].className+"").indexOf("flow")!==-1){

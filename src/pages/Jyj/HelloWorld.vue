@@ -18,8 +18,15 @@
         </div>
       </title-bar>
 
-      <div style="padding:30px;">
-        <workflow v-bind:group="[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}]" select="1"></workflow>
+      <div style="padding:30px 0;">
+        <workflow v-bind:group="[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}]" select="2"></workflow>
+
+        <result-page image="zhfuchneggong_qs@2x.png" title="操作成功" sub-title="¥1000.00" desc="参课信息已通过短信告知了Ta，请提醒本人携带好证件准时参课">
+          <div slot="btn">
+            <c-button @click.native="aaa()" title="回到首页" theme="light"></c-button>
+            <c-button title="重新编辑" theme="dark"></c-button>
+          </div>
+        </result-page>
       </div>
 
         <mt-field label="captcha" v-model="captcha">

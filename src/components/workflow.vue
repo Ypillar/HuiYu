@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="page center" ref="refpage">
-    <div class="wleft inline-block relative">
+    <!-- <div class="wleft inline-block relative">
         <div class="point main-bg-color absolute" style="width:6px;height:6px;top:5px;"></div>
         <div class="point main-bg-color absolute" style="width:12px;height:12px;right:5px;bottom:35px;"></div>
-    </div>
+    </div> -->
     
     <div class="wmiddle relative inline-block" ref="refmiddle">
         <div class="absolute inline-block line" v-bind:style="{ width : lineMaxWidth + 'px'}"></div> 
@@ -20,10 +20,10 @@
         </div>
         
     </div>
-    <div class="wright inline-block relative">
+    <!-- <div class="wright inline-block relative">
          <div class="point main-bg-color absolute" style="width:6px;height:6px;top:5px;right:0px;"></div>
         <div class="point main-bg-color absolute" style="width:12px;height:12px;left:5px;bottom:35px;"></div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -104,8 +104,8 @@ export default {
 .wmiddle{width: 90%;vertical-align: top;text-align: left;z-index: 77;}
 .flow{display: inline-block;text-align: center;width: 48px;}
 .dot{
-    width: 30px;height: 30px;
-    line-height: 30px;
+    width: 22px;height: 22px;
+    line-height: 22px;
     display: inline-block;
     border-radius: 30px;
     margin:0 5px;
@@ -126,7 +126,7 @@ export default {
     border-top:2px solid #D8D8D8;
     height: 1px;
     position: absolute;
-    top:15px;
+    top:11px;
     margin:0 20px;
     z-index: -1;
 }

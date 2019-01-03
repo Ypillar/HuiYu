@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="page">
-    <div class="btn" :class="theme">{{title}}</div>
+    <div class="btn pointer" :class="theme">{{title}}</div>
   </div>
 </template>
 

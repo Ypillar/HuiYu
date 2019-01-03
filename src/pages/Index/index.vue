@@ -1,7 +1,5 @@
 <template>
   <div class="nav">
-    <retrun-nav v-bind:show="false">详情</retrun-nav>
-    
     <router-link to="/hello">
       <mt-button @click.native="handleClick">按钮</mt-button>
     </router-link>
@@ -19,10 +17,8 @@
 </style>
 
 <script>
-import RetrunNav from "../../components/return";
 export default {
   components: {
-    RetrunNav
   }
 };
 </script>

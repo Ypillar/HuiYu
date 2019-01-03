@@ -20,12 +20,7 @@ Vue.use(MintUI);
 /**
  * 导入自定义公用组件
  */
-import titleBar from './components/titleBar';
-import resultPage from './components/resultPage';
-import cButton from './components/cButton';
-Vue.component(titleBar.name,titleBar);//标题栏
-Vue.component(resultPage.name,resultPage);
-Vue.component(cButton.name,cButton);
+import titleBar from './components/custom-components';
 
 // import Vue from 'vue'
 // import { Header,Field } from 'mint-ui';

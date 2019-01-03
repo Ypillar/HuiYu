@@ -4,7 +4,7 @@
     <!-- 结果展示 -->
     <result-page v-if="showResult" image="zhfuchneggong_qs@2x.png" title="操作成功" sub-title="¥1000.00" desc="参课信息已通过短信告知了Ta，请提醒本人携带好证件准时参课">
       <div slot="btn">
-        <c-button title="回到首页" theme="light"></c-button>
+        <c-button @click.native="aaa()" title="回到首页" theme="light"></c-button>
         <c-button title="重新编辑" theme="dark"></c-button>
       </div>
     </result-page>
@@ -14,8 +14,13 @@
       <title-bar title="" back="">
         <div slot="right">
           <!-- 右上角内容放这里 -->
+          <messager title="" color=""></messager>
         </div>
       </title-bar>
+
+
+      <workflow v-bind:group="[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}]" select="1"></workflow>
+
         <mt-field label="captcha" v-model="captcha">
           <img src="@/assets/logo.png"  >
         </mt-field>
@@ -57,7 +62,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      showResult:true,
+      //group:,
+      showResult:false,
       captcha:"",
       msg: 'Welcome to Your Vue.js App'
     }
@@ -66,6 +72,9 @@ export default {
     handleClick1:function(){
       // this.comm.msgSuccess()
       this.showResult=true;
+    },
+    aaa:function(){
+      this.comm.msg(11111111)
     },
     handleClick: function() {
       this.$toast('Hello world!');

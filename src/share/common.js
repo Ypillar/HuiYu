@@ -108,7 +108,31 @@ export default{
         if(cfg.debug)console.debug.apply(console,arguments);
     },
 
+    getClientHeight(){
+        var clientHeight=0;
+        if(document.body.clientHeight&&document.documentElement.clientHeight){
+          var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+        }
+        else{
+          var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+        }
+        return clientHeight;
+      },
     
+      getClientWidth(){
+        var clientWidth=0;
+        if(document.body.clientWidth&&document.documentElement.clientWidth){
+          var clientWidth = (document.body.clientWidth<document.documentElement.clientWidth)?document.body.clientWidth:document.documentElement.clientWidth;
+        }
+        else{
+          var clientWidth = (document.body.clientWidth>document.documentElement.clientWidth)?document.body.clientWidth:document.documentElement.clientWidth;
+        }
+        return clientWidth;
+      },
+    
+      getWorkAreaHeight(){
+        return this.getClientHeight() - (this.setting.indexFooterHeight+this.setting.indexHeaderHeight);
+      }
 
     // getCookie: function (cname) {
     //     var name = cname + "=";

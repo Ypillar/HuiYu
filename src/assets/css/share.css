@@ -1,7 +1,54 @@
+.main-bg-color{
+    background-color: #05AFAF!important;
+}
+
+.main-color{
+    color: #05AFAF!important;
+}
+
+.main-border-color{
+    border-color: #05AFAF!important;
+}
+
 .msg-icon-size{
     font-size: 30px!important;
 }
 
 .msg-error-icon-size{
     font-size: 35px!important;
+}
+
+.pointer{
+     cursor: pointer;
+}
+
+.relative{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.no-select{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.center{
+    text-align: center!important;
+}
+
+.tleft{
+    text-align: left!important;
+}
+
+.tright{
+    text-align: right!important;
+}
+
+.inline-block{
+    display: inline-block;
 }

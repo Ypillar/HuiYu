@@ -1,15 +1,14 @@
 <template>
   <div class="nav">
-   
-    <span>首页</span>
-     <router-link to="/hello">
-    <mt-button @click.native="handleClick">按钮</mt-button>
-  </router-link>
+    <retrun-nav v-bind:show="false">详情</retrun-nav>
+    
+    <router-link to="/hello">
+      <mt-button @click.native="handleClick">按钮</mt-button>
+    </router-link>
   </div>
-
 </template>
 <style lang="scss" scoped>
-.nav{
+.nav {
   width: 100%;
   height: 4rem;
   color: #333;

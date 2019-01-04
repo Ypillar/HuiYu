@@ -70,7 +70,7 @@ display: inline-block;
   color:rgb(161, 161, 161)!important;
 }
 .radius{
-  border-radius: 20px;
+  border-radius: 25px;
 }
   .btn{
     padding:6px 20px;

@@ -1,7 +1,7 @@
 'use strict'
 var regs = {
     isMobile:function(str){
-        return /^1[0-9]{10}$/.test(str);
+        return /^1[3|5|7|8|9][0-9]{9}$/.test(str);
     },
     isLng:function(str){
         //经度范围：-180.0000~180.0000

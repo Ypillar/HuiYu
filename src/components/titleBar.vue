@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="header-page">
     <mt-header :title="title || appName">
-        <mt-button slot="left" v-if="back" @click="returnPage()" icon="back">返回</mt-button>
+        <mt-button slot="left" v-if="back" @click="returnPage()" icon="back" style="color:black;"></mt-button>
         <!-- <mt-button icon="more"  slot="right"></mt-button> -->
         <div slot="right">
             <slot name="right"></slot> 
@@ -35,4 +35,11 @@ export default {
 </script>
 
 <style scoped>
+.header-page{
+  border-bottom:1px solid #e3e3e3;
+}
+.mint-header{
+  color:#222222;
+}
+
 </style>

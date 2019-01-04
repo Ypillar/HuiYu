@@ -2,7 +2,7 @@
 $color-primary: #2CAD88;
 
 .mint-header {
-  background-color: $color-primary;
+  background-color: white;
 }
 .mint-button:not(.is-disabled):active::after {
     opacity: .2 /* .6 */
@@ -61,3 +61,5 @@ $color-primary: #2CAD88;
 .mint-tabbar > .mint-tab-item.is-selected{
   background-color:white;
 }
+
+.mint-header-title{font-size: 17px;font-weight:400;}

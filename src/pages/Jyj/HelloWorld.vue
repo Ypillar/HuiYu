@@ -11,7 +11,7 @@
 
 
     <div v-if="!showResult">
-      <!-- 标题栏，支持title、back -->
+      <!-- 标题栏，支持title、back，back表示是否显示返回，title不设置默认显示config文件配置的appName -->
       <title-bar title="" :back="true">
         <div slot="right">
           <!-- 右上角要放自己的按钮，或其他html，放这里，比如这里放了一个消息组件 -->
@@ -19,6 +19,8 @@
           <messager title="" color=""></messager>
         </div>
       </title-bar>
+
+        所有自定义组件请注意看prop前加没加冒号":",跟我保持一致就行了
 
       <div style="padding:30px 0;">
         <!-- 工作流，支持group和select两个参数，select为id -->
@@ -37,7 +39,13 @@
         </result-page>
       </div>
 
-      <!-- 按钮支持的属性到cbutton组件内查看，有相应的备注 -->
+      <!-- 按钮支持的属性:
+          disable: Boolean,// true禁用，禁用不会执行点击事件
+          theme: String,//dark light
+          size: String,// big mid small
+          angle:Boolean// true为直角边框
+          click：event 当按钮没有disabled时会触发
+       -->
       按钮样式示例<br>
       <c-button  theme="dark" v-on:click="onclick()"  size="small" style="margin-right:20px;">小号按钮</c-button>
       <br><br>

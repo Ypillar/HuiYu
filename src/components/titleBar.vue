@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div>
     <mt-header :title="title || appName">
-        <mt-button slot="left" v-if="back!=='false'" @click="returnPage()" icon="back">返回</mt-button>
+        <mt-button slot="left" v-if="back" @click="returnPage()" icon="back">返回</mt-button>
         <!-- <mt-button icon="more"  slot="right"></mt-button> -->
         <div slot="right">
             <slot name="right"></slot> 

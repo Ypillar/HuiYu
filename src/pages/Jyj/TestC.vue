@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <button v-on:click="count++">You clicked me {{ count }} times.</button>
     <slot name="aa"></slot>
     完成

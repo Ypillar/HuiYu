@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="page">
-    <div class="btn pointer" :class="theme">{{title}}</div>
+  <div class="btn_page" @click="onclick()">
+    <div class="btn pointer" :class="[theme,size?size:'big',disable?theme==='dark'?'disabeld-btn-dark':'disabeld-btn-light':'',angle?'':'radius']">{{title}}</div>
   </div>
 </template>
 
@@ -8,17 +8,32 @@
 
 export default {
   name: 'cButton',
-  // back为false时不显示返回按钮
-  props: ['title','theme'],
+  model: {
+    event: 'click'
+  },
+  props: {
+    disable: Boolean,// true禁用，禁用不会执行点击事件
+    title: String,//标题
+    theme: String,//dark light
+    size: String,// big mid small
+    angle:Boolean// true为直角边框
+  },
   data () {
     return {
+      //_size:'big'
       // appName:this.cfg.appName,
     }
   },
   methods: {
-    
+    onclick:function(){
+      // console.log(this.disable)
+      if(!this.disable){
+        this.$emit('click');
+      }
+    }
   },
   mounted(){
+    // console.log(this.disable,typeof this.disable)
   },
   components:{
   }
@@ -26,13 +41,39 @@ export default {
 </script>
 
 <style scoped>
-.page{
+.btn_page{
 display: inline-block;
 }
+.big{
+  min-width:120px;height:35px;
+  line-height: 35px;
+  font-size: 18px;
+}
+.mid{
+  min-width:100px;height:25px;
+  line-height: 25px;
+  font-size: 16px;
+}
+.small{
+  min-width:80px;height:20px;
+  line-height: 20px;
+  font-size: 14px;
+}
+.disabeld-btn-light{
+  border: 1px solid #D8D8D8!important;
+  color:rgb(175, 175, 175)!important;
+}
+.disabeld-btn-dark{
+  border: 1px solid #D8D8D8!important;
+  background-color: #D8D8D8!important;
+  color:rgb(161, 161, 161)!important;
+}
+.radius{
+  border-radius: 20px;
+}
   .btn{
-    width:120px;height:35px;
-    line-height: 35px;
-    border-radius: 20px;
+    padding:6px 20px;
+    text-align: center;
     border: 1px solid #2CAD88;
     
   }

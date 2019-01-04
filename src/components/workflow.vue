@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="page center" ref="refpage">
+  <div class="page center" ref="refpage">
     <!-- <div class="wleft inline-block relative">
         <div class="point main-bg-color absolute" style="width:6px;height:6px;top:5px;"></div>
         <div class="point main-bg-color absolute" style="width:12px;height:12px;right:5px;bottom:35px;"></div>
@@ -72,7 +72,7 @@ export default {
     //   }
       
       let margin=this.$refs.refmiddle.offsetWidth - reduce;
-      margin = parseFloat((margin/(this.group.length-1)).toFixed(4));
+      margin = parseFloat((margin/(this.group.length-1)).toFixed(4))-5;
       this.margin=margin;
       console.log(this.$refs.refmiddle.offsetWidth,reduce,margin)
 
@@ -101,7 +101,7 @@ export default {
 .point{
     border-radius: 10px;
 }
-.wmiddle{width: 90%;vertical-align: top;text-align: left;z-index: 77;}
+.wmiddle{width: 90%;vertical-align: top;text-align: center;z-index: 77;}
 .flow{display: inline-block;text-align: center;width: 48px;}
 .dot{
     width: 22px;height: 22px;

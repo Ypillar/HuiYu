@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="page">
+  <div class="page">
     <!-- <title-bar title="" back="">
       <div slot="right">
       </div>

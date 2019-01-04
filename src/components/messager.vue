@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="page center inline-block">
+  <div class="page center inline-block">
     <div class="icon">
         <div v-if="hasMsg" class="point"></div>
         <i class="pointer icon fa fa-bell-o" :style="{color:color?color:'white'}" @click="goMsgPage()" aria-hidden="true"></i> 
@@ -35,7 +35,6 @@ export default {
 </script>
 
 <style scoped>
-
 .page .icon{
     position: relative;
 }

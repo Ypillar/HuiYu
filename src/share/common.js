@@ -62,7 +62,7 @@ export default{
     msgWarning:txt=>{
         Toast({
             message: txt,
-            iconClass: 'mint-toast-icon mintui mintui-field-warning msg-icon-size',
+            iconClass: 'fa fa-exclamation-circle msg-error-icon-size',
             // duration:-1
         });
     },

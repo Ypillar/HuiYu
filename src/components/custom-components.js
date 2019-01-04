@@ -13,6 +13,12 @@ Vue.component(messager.name,messager);
 
 import workflow from './workflow';//
 Vue.component(workflow.name,workflow);
+
+import bottomBtn from './bottomBtn';//
+Vue.component(bottomBtn.name,bottomBtn);
+
+import modal from './modal';//
+Vue.component(modal.name,modal);
 export default {
     //titleBar,resultPage,cButton
   }

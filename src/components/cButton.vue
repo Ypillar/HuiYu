@@ -1,6 +1,8 @@
 <template>
   <div class="btn_page" @click="onclick()">
-    <div class="btn pointer" :class="[theme,size?size:'big',disable?theme==='dark'?'disabeld-btn-dark':'disabeld-btn-light':'',angle?'':'radius']">{{title}}</div>
+    <div class="btn pointer" :class="[theme,size?size:'big',disable?theme==='dark'?'disabeld-btn-dark':'disabeld-btn-light':'',angle?'':'radius']">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,6 @@ export default {
   },
   props: {
     disable: Boolean,// true禁用，禁用不会执行点击事件
-    title: String,//标题
     theme: String,//dark light
     size: String,// big mid small
     angle:Boolean// true为直角边框

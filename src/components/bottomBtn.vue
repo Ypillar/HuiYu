@@ -1,12 +1,12 @@
 <template>
-  <div class="page center relative" :class="[fixed?'fixed':'']" ref="refpage">
+  <div class="page center relative" :style="{zIndex:fixed?'998':'1'}" :class="[fixed?'fixed':'']" ref="refpage">
     <div class="service absolute" @click="clickService()">
         <div style="height:15px;"><i class="pointer icon fa fa-headphones" aria-hidden="true"></i> 
         </div>
         <div style="font-size:10px;margin-top: -5px;">客服</div>
     </div>
     <div class="btn" ref="refbtn">
-        <c-button :title="title" theme="dark" v-on:click="$emit('click')" v-bind:disable="disable" size="big" :angle="true" style="width:100%;"></c-button>
+        <c-button theme="dark" v-on:click="$emit('click')" v-bind:disable="disable" size="big" :angle="true" style="width:100%;">{{title}}</c-button>
     </div>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
     position: fixed;
 }
 .page{
-    z-index: 999;
+    /* z-index: 998; */
     bottom: 0px;
     border-top:1px solid #e3e3e3;
     height: 50px;

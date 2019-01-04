@@ -58,7 +58,6 @@ export default {
       }
     //   if(p===1)p=0;// 第一步
       this.scount = p;
-      console.log(this.scount)
     //   this.width=(100/this.group.length-1);
     // console.log(111,,this.comm.getClientWidth())
       this.$refs.refmiddle.style.width=this.$refs.refpage.offsetWidth-70+"px";
@@ -74,12 +73,12 @@ export default {
       let margin=this.$refs.refmiddle.offsetWidth - reduce;
       margin = parseFloat((margin/(this.group.length-1)).toFixed(4))-5;
       this.margin=margin;
-      console.log(this.$refs.refmiddle.offsetWidth,reduce,margin)
+    //   console.log(this.$refs.refmiddle.offsetWidth,reduce,margin)
 
       this.lineMaxWidth = (this.group.length-1) * (margin +48);
       this.gLineWidth = ( this.scount * (margin +48) )+((margin+48)/2);// 计算进度线条长度
       if(this.gLineWidth>this.lineMaxWidth)this.gLineWidth = this.lineMaxWidth;
-      console.log(this.lineMaxWidth,this.gLineWidth)
+    //   console.log(this.lineMaxWidth,this.gLineWidth)
     //   this.group.map(i=>i.margin=margin);
     //   console.log(this.group)
   },

@@ -3,7 +3,8 @@ import Vue from 'vue'
 //import cfg from 'static/config'
 import router from '../router';
 import cache from './cache';
-import { Toast,MessageBox  } from 'mint-ui';
+import schedule from './schedule';
+import { Toast,MessageBox,Indicator   } from 'mint-ui';
 // import { Loading } from 'element-ui';
 
 // let loadingInstance = null;
@@ -81,6 +82,17 @@ export default{
         return MessageBox.confirm(txt,title||"提示")
     },
 
+    // 加载状态遮罩控制
+    loading:(txt)=>{
+        Indicator.open({
+            text: txt || '请稍候...',
+            spinnerType: 'fading-circle'
+        });
+    },
+    loaded:()=>{
+        Indicator.close();
+    },
+
     // 登录状态
     // 判断是否登录，boolean
     isLogin:function(){
@@ -102,10 +114,24 @@ export default{
         }
     },
     
+    //任务调度
+    addSchedule:function(opt){
+        return schedule.addTask(opt);
+    },
+    removeSchedule:function(guidOrTask){
+        return schedule.removeTask(guidOrTask);
+    },
 
     // 其他类型工具函数
     debug:function(){
         if(cfg.debug)console.debug.apply(console,arguments);
+    },
+
+    getGuid:()=> {
+        var S4 = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
     },
 
     getClientHeight(){

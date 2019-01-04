@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <router-link to="/hello">
-      <mt-button @click.native="handleClick">按钮</mt-button>
+      <mt-button >按钮</mt-button>
     </router-link>
   </div>
 </template>

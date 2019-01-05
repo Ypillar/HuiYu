@@ -19,6 +19,8 @@ Vue.component(bottomBtn.name,bottomBtn);
 
 import modal from './modal';//
 Vue.component(modal.name,modal);
+import tabbar from './tabbar';// tabbar首页和我的
+Vue.component(tabbar.name,tabbar);
 export default {
     //titleBar,resultPage,cButton
   }

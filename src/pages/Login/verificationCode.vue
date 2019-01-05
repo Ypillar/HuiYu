@@ -75,7 +75,6 @@
       }
     },
     mounted() {
-        console.log(this.comm.isLogin())
     },
     components: {}
   }

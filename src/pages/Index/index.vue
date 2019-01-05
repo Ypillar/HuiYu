@@ -39,24 +39,7 @@
         <small>王昆老师/讲师团</small>
       </p>
     </div>
-    <div class="footer">
-      <div class="btnTabbarHome">
-        <div class="btn">
-          <p>
-            <i class="iconHome"></i>
-          </p>
-          <p class="tabbarSelect">首页</p>
-        </div>
-      </div>
-      <div class="btnTabbarMy">
-        <div class="btn" @click="btnMy()">
-          <p>
-            <i class="iconMy"></i>
-          </p>
-          <p class="tabbarWord">我的</p>
-        </div>
-      </div>
-    </div>
+    <tabbar @click="onclick($event)"></tabbar>  
   </div>
 </template>
 <style lang="scss" scoped>
@@ -144,56 +127,7 @@
       width: 100%;
     }
   }
-  //footer
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 49px;
-    display: flex;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
-    .btnTabbarHome {
-      width: auto;
-      flex: auto;
-      text-align: center;
-      .iconHome {
-        display: block;
-        width: 18px;
-        height: 17px;
-        margin: 9px auto 0;
-        background: url("../../assets/imgs/shouye_s@2x.png") no-repeat left/100%;
-      }
-    }
-    .btnTabbarMy {
-      width: auto;
-      flex: auto;
-      text-align: center;
-      .iconMy {
-        display: block;
-        width: 17px;
-        height: 18px;
-        margin: 9px auto 0;
-        background: url("../../assets/imgs/wode_n@2x.png") no-repeat left/100%;
-      }
-    }
-    .btn {
-      display: inline-block;
-      padding: 0 15px;
-      .tabbarWord {
-        margin-top: 1px;
-        color: #666666;
-        font-size: 10px;
-        line-height: 14px;
-      }
-      .tabbarSelect {
-        margin-top: 1px;
-        color: #2cad88;
-        font-size: 10px;
-        line-height: 14px;
-      }
-    }
-  }
+  
   .padBottom:after {
     width: 100%;
     height: 70px;
@@ -214,7 +148,9 @@ export default {
     };
   },
   methods: {
-    btnMy() {}
+    onclick(n) {
+      console.log(n)
+    }
   }
 };
 </script>

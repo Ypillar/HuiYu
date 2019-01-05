@@ -1,6 +1,8 @@
 'use strict'
+import Vue from 'vue'
+import router from '../router';
 let Tasks=[];
-let timer = setInterval(schedule,1000);
+let timer = setInterval(schedule,100);
 let getNow=()=>{
     return (new Date()).getTime();
 }
@@ -24,8 +26,11 @@ class Task {
         if(typeof this.sleep ==="function"){
             if(this.sleep())return;//外部阻止执行
         }
-        if(typeof this.sleep ==="boolean"){
-            if(this.sleep)return;//外部阻止执行
+        // if(typeof this.sleep ==="boolean"){
+        //     if(this.sleep)return;//外部阻止执行
+        // }
+        if(typeof this.sleep ==="string"){
+            if(router.app.$route.path!==this.sleep)return;
         }
         let now = getNow();
         if(this.first_run_time===0){

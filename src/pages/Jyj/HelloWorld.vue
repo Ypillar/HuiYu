@@ -16,7 +16,7 @@
         <div slot="right">
           <!-- 右上角要放自己的按钮，或其他html，放这里，比如这里放了一个消息组件 -->
           <!-- 消息组件支持文字标题、图标颜色自定义 -->
-          <messager title="" color=""></messager>
+          <messager title="" color="black"></messager>
         </div>
       </title-bar>
 
@@ -143,10 +143,12 @@ export default {
         },
         // 间隔毫秒
         interval:3000,
-        // 当返回值为true时，任务会休眠（不会执行，但是任务并没有被注销）
-        sleep:()=>{
-          return this.$route.path!=='/hello'
-        }
+        // 支持函数，当返回值为true时，任务会休眠（不会执行，但是任务并没有被注销）
+        // sleep:()=>{
+        //   return this.$route.path!=='/hello'
+        // }
+        // 同时支持字符串，表示在这个路由时执行，否则休眠
+        sleep:'/hello'
       });
       this.comm.msgSuccess("请查看addtask函数");
     },

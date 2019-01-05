@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import subIndex from './sub-index'
 // import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
@@ -21,5 +22,5 @@ export default new Router({
       name: 'Login',
       component: resolve => require(['@/pages/login/login'],resolve),
     }
-  ]
+  ].concat(subIndex)
 })

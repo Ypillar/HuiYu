@@ -30,7 +30,7 @@ class Task {
         //     if(this.sleep)return;//外部阻止执行
         // }
         if(typeof this.sleep ==="string"){
-            if(router.app.$route.path!==this.sleep)return;
+            if(router.app.$route.path.toLowerCase()!==this.sleep.toLowerCase())return;
         }
         let now = getNow();
         if(this.first_run_time===0){
@@ -53,9 +53,7 @@ class Task {
     
     destroy(){
         this._isDestory=true;
-        setTimeout(()=>{
-            Tasks = Tasks.filter(o=>!o._isDestory);
-        })
+        Tasks = Tasks.filter(o=>!o._isDestory);
     }
 }
 function schedule(){
@@ -74,9 +72,11 @@ function addTask(opt){
     let task = Tasks.find(o=>o.getGuid()===opt.guid);
     if(task){
         // 重复的任务
-        console.warn("试图添加重复的任务")
-        return task;
+        console.warn("试图添加重复的任务，清空之前的任务");
+        removeTask(task.getGuid());
+        console.log(111)
     }
+    
     task = new Task(opt.excute,opt.interval,opt.guid,opt.sleep);
     Tasks.push(task);
     return task;

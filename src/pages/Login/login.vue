@@ -14,7 +14,7 @@
             <img src="../../assets/imgs/shoujihao@2x.png" style="vertical-align:middle;">
           </div>
           <div class="inline-block" style="width:70%">
-            <mt-field label="" v-model="username" :attr="{ maxlength: 11 }" placeholder="请输入手机号"></mt-field>
+            <mt-field label="" v-model="mobile" :attr="{ maxlength: 11 }" type="tel" placeholder="请输入手机号"></mt-field>
           </div>
         </div>
         <div>
@@ -22,7 +22,7 @@
             <img src="../../assets/imgs/yanzhengma@2x.png" style="vertical-align:middle;">
           </div>
           <div class="inline-block" style="width:70%">
-            <mt-field label="" v-model="password" :attr="{ maxlength: 6 }" placeholder="请输入验证码">
+            <mt-field label="" v-model="vcode" :attr="{ maxlength: 6 }" type="number" placeholder="请输入验证码">
               <div style="color:#999999;width:80px;" @click="getSms()" v-if="interval<=0">获取验证码</div>
               <div style="color:#999999;width:80px;text-align:center" v-if="interval>0">{{interval}} 秒</div>
             </mt-field>
@@ -59,31 +59,40 @@ export default {
       appName:this.cfg.appName,
       interval:0,
       loging:false,
-      username:"",
-      password:""
+      mobile:"",
+      vcode:"",
+      sendTimes:0
     }
   },
   methods: {
     login:function(){
-      if(!regex.isMobile(this.username)){
+      if(this.sendTimes===0){
+        this.comm.msg("请先发送验证码");return;
+      }
+      if(!regex.isMobile(this.mobile)){
         this.comm.msg("请输入合法的手机号码");return;
       }
-      if(!/^[0-9]{4,6}$/.test(this.password)){
+      if(!/^[0-9]{4,6}$/.test(this.vcode)){
         this.comm.msg("请输入合法的验证码");return;
       }
+
       this.loging=true;
+      // http校验无误hi后跳转到首页
     },
     getSms:function(){
+      if(!regex.isMobile(this.mobile)){
+        this.comm.msg("请输入合法的手机号码");return;
+      }
       if(this.interval<=0){
         this.interval=10;
       }else{
         return;// 正在倒计时中
       }
+      this.sendTimes++;
       // 请求服务端，倒计时
       this.comm.addSchedule({
         guid:this.viewModel.guid,
         excute:()=>{
-          console.log(111)
           if(this.interval>0)
             this.interval--;
           else{

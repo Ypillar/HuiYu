@@ -142,7 +142,7 @@ export default {
           console.log('vvv5',this.task)
         },
         // 间隔毫秒
-        interval:3000,
+        interval:1000,
         // 支持函数，当返回值为true时，任务会休眠（不会执行，但是任务并没有被注销）
         // sleep:()=>{
         //   return this.$route.path!=='/hello'

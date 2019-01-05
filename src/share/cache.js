@@ -65,18 +65,18 @@ export default{
     SESSION_CACHE:"session",//sessionstorage
     // hash可选项，传入可避免key冲突覆盖，type为cache.MEMORY_CACHE | cache.LOCAL_CACHE | cache.SESSION_CACHE
     get:function(type,name,hash){
-        this.privateFunc.get(this[type],name,hash);
+        return privateFunc.get(eval(type),name,hash);
     },
     // 同上
     set:function(type,name,value,hash){
-        this.privateFunc.set(this[type],name,value,hash);
+        privateFunc.set(eval(type),name,value,hash);
     },
     // 同上
     exists:function(type,name,hash){
-        return this.privateFunc.exists(this[type],name,hash);
+        return privateFunc.exists(eval(type),name,hash);
     },
     // 同上
     removeItem:function(type,name,hash){
-        return this.privateFunc.removeItem(this[type],name,hash);
+        return privateFunc.removeItem(eval(type),name,hash);
     }
 }

@@ -1,24 +1,220 @@
 <template>
-  <div class="nav">
-    <router-link to="/hello">
-      <mt-button >按钮</mt-button>
-    </router-link>
+  <div class="box">
+    <div class="greet">
+      <span>Hi 亲爱的王燕</span>
+      <i class="rightRcon">
+        <messager title color="#222222"></messager>
+      </i>
+    </div>
+    <div class="banner">
+      <img :src="imageUrl">
+    </div>
+    <!-- 重磅推荐 -->
+    <div class="padding heavyRecommendation">
+      <p class="title">
+        <span>重磅推荐</span>
+      </p>
+      <div class="radiusImg">
+        <img :src="imageUrl">
+      </div>
+      <p class="information">
+        <span>经营能量</span>
+        <small>王昆老师/讲师团</small>
+      </p>
+    </div>
+    <!-- 讲师入驻 -->
+    <div class="padding settledIn">
+      <img src="../../assets/imgs/jiangshiruzhu@2x.png">
+    </div>
+    <!-- 其它课程 -->
+    <div class="padding heavyRecommendation padBottom">
+      <p class="title">
+        <span>其它课程</span>
+      </p>
+      <div class="radiusImg">
+        <img :src="imageUrl">
+      </div>
+      <p class="information">
+        <span>家庭能量</span>
+        <small>王昆老师/讲师团</small>
+      </p>
+    </div>
+    <div class="footer">
+      <div class="btnTabbarHome">
+        <div class="btn">
+          <p>
+            <i class="iconHome"></i>
+          </p>
+          <p class="tabbarSelect">首页</p>
+        </div>
+      </div>
+      <div class="btnTabbarMy">
+        <div class="btn" @click="btnMy()">
+          <p>
+            <i class="iconMy"></i>
+          </p>
+          <p class="tabbarWord">我的</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
-.nav {
-  width: 100%;
-  height: 4rem;
-  color: #333;
-  line-height: 4rem;
-  text-align: center;
-  font-size: 1.4rem;
+.box {
+  //顶部的欢迎和消息
+  .greet {
+    width: 100%;
+    height: 44px;
+    background: rgba(255, 255, 255, 1);
+    position: relative;
+    border-radius: 4px;
+    span {
+      width: 10.8rem;
+      height: 2.4rem;
+      font-size: 1.7rem;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: #222222;
+      line-height: 2.4rem;
+      display: inline-block;
+      position: absolute;
+      top: 1.3rem;
+      left: 1.4rem;
+    }
+    .rightRcon {
+      position: absolute;
+      right: 13px;
+      top: 13px;
+    }
+  }
+  //广告图
+  .banner {
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  //重磅推荐/其它课程
+  .heavyRecommendation {
+    margin-top: 3rem;
+    .title {
+      font-size: 2rem;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: rgba(51, 51, 51, 1);
+    }
+    .radiusImg {
+      margin-top: 10px;
+      width: 100%;
+      height: 186px;
+      border-radius: 5px;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    .information {
+      margin-top: 10px;
+      span {
+        font-size: 1.6rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(51, 51, 51, 1);
+      }
+
+      small {
+        font-size: 1.4rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+        margin-left: 5px;
+      }
+    }
+  }
+  //讲师入驻
+  .settledIn {
+    width: 100%;
+    height: 74px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 20px;
+    img {
+      width: 100%;
+    }
+  }
+  //footer
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 49px;
+    display: flex;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+    .btnTabbarHome {
+      width: auto;
+      flex: auto;
+      text-align: center;
+      .iconHome {
+        display: block;
+        width: 18px;
+        height: 17px;
+        margin: 9px auto 0;
+        background: url("../../assets/imgs/shouye_s@2x.png") no-repeat left/100%;
+      }
+    }
+    .btnTabbarMy {
+      width: auto;
+      flex: auto;
+      text-align: center;
+      .iconMy {
+        display: block;
+        width: 17px;
+        height: 18px;
+        margin: 9px auto 0;
+        background: url("../../assets/imgs/wode_n@2x.png") no-repeat left/100%;
+      }
+    }
+    .btn {
+      display: inline-block;
+      padding: 0 15px;
+      .tabbarWord {
+        margin-top: 1px;
+        color: #666666;
+        font-size: 10px;
+        line-height: 14px;
+      }
+      .tabbarSelect {
+        margin-top: 1px;
+        color: #2cad88;
+        font-size: 10px;
+        line-height: 14px;
+      }
+    }
+  }
+  .padBottom:after {
+    width: 100%;
+    height: 70px;
+    content: ".";
+    display: block;
+    visibility: hidden;
+  }
 }
 </style>
 
 <script>
 export default {
-  components: {
+  components: {},
+  data() {
+    return {
+      //   param:this.$route.query,
+      imageUrl: this.cfg.location + "/static/image/" + "timg.jpg"
+    };
+  },
+  methods: {
+    btnMy() {}
   }
 };
 </script>

@@ -96,15 +96,15 @@ export default{
     // 登录状态
     // 判断是否登录，boolean
     isLogin:function(){
-        return cache.exists(cache.SESSION_CACHE,cfg.sessionKey);
+        return cache.sCache.exists(cfg.sessionKey);
     },
     // 登录后设置登录状态
     setLoginInfo:function(userInfo){
-        cache.set(cache.SESSION_CACHE,cfg.sessionKey,userInfo);
+        cache.sCache.set(cfg.sessionKey,userInfo);
     },
     // 获取登录的用户信息
     getLoginInfo:function(){
-        return cache.get(cache.SESSION_CACHE,cfg.sessionKey);
+        return cache.sCache.get(cfg.sessionKey);
     },
     getToken:function(){
         if(this.isLogin()){

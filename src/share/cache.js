@@ -60,23 +60,59 @@ let privateFunc={
 }
 
 export default{
-    MEMORY_CACHE:"memory",// 内存缓存
-    LOCAL_CACHE:"local",// localstorage
-    SESSION_CACHE:"session",//sessionstorage
-    // hash可选项，传入可避免key冲突覆盖，type为cache.MEMORY_CACHE | cache.LOCAL_CACHE | cache.SESSION_CACHE
-    get:function(type,name,hash){
-        return privateFunc.get(eval(type),name,hash);
+    // memory 缓存
+    mCache:{
+        get:function(name,hash){
+            return privateFunc.get(memory,name,hash);
+        },
+        // 同上
+        set:function(name,value,hash){
+            privateFunc.set(memory,name,value,hash);
+        },
+        // 同上
+        exists:function(name,hash){
+            return privateFunc.exists(memory,name,hash);
+        },
+        // 同上
+        removeItem:function(name,hash){
+            return privateFunc.removeItem(memory,name,hash);
+        }
     },
-    // 同上
-    set:function(type,name,value,hash){
-        privateFunc.set(eval(type),name,value,hash);
+    // sessionstorage 缓存
+    sCache:{
+        get:function(name,hash){
+            return privateFunc.get(session,name,hash);
+        },
+        // 同上
+        set:function(name,value,hash){
+            privateFunc.set(session,name,value,hash);
+        },
+        // 同上
+        exists:function(name,hash){
+            return privateFunc.exists(session,name,hash);
+        },
+        // 同上
+        removeItem:function(name,hash){
+            return privateFunc.removeItem(session,name,hash);
+        }
     },
-    // 同上
-    exists:function(type,name,hash){
-        return privateFunc.exists(eval(type),name,hash);
-    },
-    // 同上
-    removeItem:function(type,name,hash){
-        return privateFunc.removeItem(eval(type),name,hash);
+    // localstorage 缓存
+    lCache:{
+        get:function(name,hash){
+            return privateFunc.get(local,name,hash);
+        },
+        // 同上
+        set:function(name,value,hash){
+            privateFunc.set(local,name,value,hash);
+        },
+        // 同上
+        exists:function(name,hash){
+            return privateFunc.exists(local,name,hash);
+        },
+        // 同上
+        removeItem:function(name,hash){
+            return privateFunc.removeItem(local,name,hash);
+        }
     }
+    
 }

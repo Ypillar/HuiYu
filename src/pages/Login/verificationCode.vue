@@ -33,7 +33,7 @@
         },
         loging: false,
         interval: 0,
-        mobile: this.cache.get(this.cache.SESSION_CACHE, "bindMobile"),
+        mobile: this.cache.sCache.get("bindMobile"),
         vcode: "",
         sendTimes: 0
       }
@@ -74,7 +74,9 @@
         });
       }
     },
-    mounted() {},
+    mounted() {
+        console.log(this.comm.isLogin())
+    },
     components: {}
   }
 

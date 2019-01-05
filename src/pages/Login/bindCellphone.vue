@@ -32,7 +32,7 @@
           this.comm.msg("请输入合法的手机号码");
           return;
         }
-        this.cache.set(this.cache.SESSION_CACHE,"bindMobile",this.mobile);
+        this.cache.sCache.set("bindMobile",this.mobile);
         this.$router.push("/VerificationCode");
       }
     },

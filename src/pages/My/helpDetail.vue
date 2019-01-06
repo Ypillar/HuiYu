@@ -1,33 +1,37 @@
 <template>
   <div class="aboutus">
-    <title-bar title="关于我们" :back="true">
+    <title-bar :title="title+'指南手册'" :back="true">
       <div slot="right">
         <!-- 右上角要放自己的按钮，或其他html，放这里，比如这里放了一个消息组件 -->
         <!-- 消息组件支持文字标题、图标颜色自定义 -->
         <!-- <messager title="" color="black"></messager> -->
       </div>
     </title-bar>
-    <div style="" class="center">
-        <img src="static/tempImg/2code.png">
-    </div>
-    <div class="center">
-        慧宇千城由能量时光提供软件服务支持
-    </div>
+    操作内容待定
   </div>
 </template>
 
 <script>
   import regex from '../../share/regex'
   export default {
-    name: 'AboutUs',
+    name: 'HelpDetail',
     data() {
       return {
+        type:this.$route.query.type,
+        title:""
       }
     },
     methods: {
         
     },
     mounted() {
+      switch(this.$route.query.type){
+        case "auth":this.title="认证";break;
+        case "sign":this.title="签到";break;
+        case "appoint":this.title="预约";break;
+        case "exchange":this.title="兑换";break;
+        case "login":this.title="登录";break;
+      }
     },
     components: {}
   }

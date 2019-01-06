@@ -79,8 +79,10 @@
 
 
       <!-- 左侧联系客服，右侧为按钮，支持fixed固定底部，禁用右侧按钮，标题，点击事件
-        当fixed为true时，底部设置padding-bottom：大于等于50px。否则会遮挡
+        当fixed为true时，加一个class为bottom-btn-palce的div否则会遮挡
+        
        -->
+      <div class="bottom-btn-palce"></div>
       <bottom-btn :fixed="true" :disable="false" title="提交订单"  v-on:click="onclick()"></bottom-btn>
        
        <!-- 首页tabbar，直接复制过去就可以用，selected就是选中的item的id -->
@@ -142,7 +144,7 @@ export default {
           console.log('vvv5',this.task)
         },
         // 间隔毫秒
-        interval:3000,
+        interval:1000,
         // 支持函数，当返回值为true时，任务会休眠（不会执行，但是任务并没有被注销）
         // sleep:()=>{
         //   return this.$route.path!=='/hello'

@@ -49,7 +49,8 @@ export default{
     // 提示信息
     msg:txt=>{
         Toast({
-            message: txt
+            message: txt,
+            // duration:-1
         })
     },
     //
@@ -78,8 +79,13 @@ export default{
         //MessageBox(title||'提示', txt);
         return MessageBox.alert(txt,title||'提示');
     },
-    confirm:(txt,title)=>{
-        return MessageBox.confirm(txt,title||"提示")
+    confirm:(message,title,opt={})=>{
+        return MessageBox(Object.assign({
+            message,
+            title:title||"提示",
+            showConfirmButton:true,
+            showCancelButton:true
+        },opt))
     },
 
     // 加载状态遮罩控制
@@ -96,15 +102,15 @@ export default{
     // 登录状态
     // 判断是否登录，boolean
     isLogin:function(){
-        return cache.exists(cache.SESSION_CACHE,cfg.sessionKey);
+        return cache.sCache.exists(cfg.sessionKey);
     },
     // 登录后设置登录状态
     setLoginInfo:function(userInfo){
-        cache.set(cache.SESSION_CACHE,cfg.sessionKey,userInfo);
+        cache.sCache.set(cfg.sessionKey,userInfo);
     },
     // 获取登录的用户信息
     getLoginInfo:function(){
-        return cache.get(cache.SESSION_CACHE,cfg.sessionKey);
+        return cache.sCache.get(cfg.sessionKey);
     },
     getToken:function(){
         if(this.isLogin()){

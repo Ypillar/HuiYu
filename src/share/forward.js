@@ -1,0 +1,68 @@
+'use strict'
+import router from '../router';
+import comm from './common'
+let noDev = function(){
+    comm.msg("功能开发中，路由暂无法跳转");
+}
+export default {
+    index:()=>{
+        router.push("/");
+    },
+    // 登陆页面
+    login:()=>{
+        router.push("/login");
+    },
+    // 客服页面
+    service:()=>{
+        router.push('/CustomerService');
+    },
+    // 设置页面
+    setup:()=>{
+        router.push('/SetUp');
+    },
+    // 设置-编辑资料
+    editSelfInfo:()=>{
+        //router.push('/editSelfInfo');
+        noDev();
+    },
+    //关于我们
+    aboutUs:()=>{
+        router.push('/aboutUs');
+    },
+    //操作指南首页
+    help:()=>{
+        router.push('/help');
+    },
+    // 操作指南内容，type为auth、sign、appoint、exchange、login
+    helpDetail:(type)=>{
+        if(!type){comm.msg("type不能为空");return;}
+        router.push('/HelpDetail?type='+type);
+    },
+    // 消息中心
+    messageCenter:()=>{
+        noDev()
+    },
+    // 能量详情（经营,代理商）,type=custom|agent 进入代理商视图、普通用户视图，id为能量的ID，用于获取显示内容
+    curriculum:(id,type)=>{
+        if(!id){comm.msg("课程id不能为空");return;}
+        type = type?type:"custom";
+        router.push(`/Curriculum?type=${type}&id=${id}`);
+    },
+    // 支付页面,order订单号，课程名，票价单价，数量
+    payment:(order,name,price,count)=>{
+        if(!order){comm.msg("订单号为空");return;}
+        if(!name){comm.msg("课程名为空");return;}
+        if(!price){comm.msg("票价为空");return;}
+        if(!count){comm.msg("数量为空");return;}
+        router.push(`/Payment?order=${order}&name=${name}&price=${price}&count=${count}`);
+    },
+    // 兑换券页面 type 1未使用，2已送出，3已使用
+    coinCertificate:(type)=>{
+        noDev();
+    },
+    // 订单管理列表,type 1 待审核、2付款、3、待签到、4待确认、5已完成
+    order:(type)=>{
+        noDev();
+    }
+
+}

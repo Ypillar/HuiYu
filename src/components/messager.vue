@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     goMsgPage:function(){
-        this.$router.push("/");
+        this.forward.messageCenter();
     }
   },
   mounted(){

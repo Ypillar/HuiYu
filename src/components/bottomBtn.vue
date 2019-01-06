@@ -27,10 +27,8 @@ export default {
     }
   },
   methods: {
-    
     clickService:function(){
-        //this.$router.push("/");
-        this.comm.msg("跳转客服")
+        this.forward.service();
     }
   },
   mounted(){

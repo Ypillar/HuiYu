@@ -11,6 +11,8 @@ import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
 import comm from './share/common'
+import cache from './share/cache';
+import forward from './share/forward'
 // import validate from './share/validate'
 
 Vue.use(VueResource);
@@ -28,7 +30,9 @@ import titleBar from './components/custom-components';
 // Vue.component(Header.name, Header);
 
 Vue.prototype.cfg = cfg;
+Vue.prototype.cache = cache;
 Vue.prototype.comm = comm;
+Vue.prototype.forward=forward;
 Vue.config.productionTip = false
 
 Vue.http.options.xhr = { withCredentials: true };

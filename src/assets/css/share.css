@@ -63,3 +63,11 @@
     display: block;
     visibility: hidden;
   }
+
+.floatLeft{float: left!important;}
+.floatRight{float: left!important;}
+.fullSize{width: 100%;height: 100%;}
+.radius{border-radius: 10px;}
+.bottom-btn-palce{height: 50px;width: 100%;}
+
+.bold{font-weight: 600!important;}

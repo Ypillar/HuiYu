@@ -1,0 +1,42 @@
+/* 苹方-简 中黑体 */
+@font-face {
+    font-family: 'pingFangSC-Medium';
+    src: url('pingFangSCMedium.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 苹方-简 细体 */
+  @font-face{
+    font-family: 'pingFangSC-Light';
+    src: url('pingFangSCLight.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 苹方-简 常规体 */
+  @font-face{
+    font-family: 'pingFangSC-Regular';
+    src: url('pingFangSCRegular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 苹方-简 纤细体 */
+  @font-face{
+    font-family: 'PingFangSC-Thin,';
+    src: url('PingFangSCThin.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+   /* 苹方-简 极细体 */
+  @font-face{
+    font-family: 'PingFangSC-Ultralight';
+    src: url('PingFangSCUltralight.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 苹方-简 中粗休 */
+  @font-face{
+    font-family: 'PingFangSC-Semibold';
+    src: url('PingFangSCSemibold.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }

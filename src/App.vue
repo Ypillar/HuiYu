@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style>
+@import "./assets/font-awesome-4.7.0/fonts/font.css";
 #app {
   overflow: auto;
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;

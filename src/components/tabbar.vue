@@ -1,19 +1,19 @@
 <template>
   <div class="footer">
-    <div class="btnTabbarHome tabbarSelect"  @click="onclick(1)">
+    <div class="btnTabbarHome tabbarSelect" @click="onclick(1)">
       <div class="btn">
         <p>
-          <i :class="{iconHome:n==2,iconHomeShow:n==1}"></i>
+          <i :class="{iconHome:number==2,iconHomeShow:number==1}"></i>
         </p>
-        <p :class="{tabbarSelect:n==1,tabbarWord:n==2}">首页</p>
+        <p :class="{tabbarSelect:number==1,tabbarWord:number==2}">首页</p>
       </div>
     </div>
-    <div class="btnTabbarMy ">
+    <div class="btnTabbarMy">
       <div class="btn" @click="onclick(2)">
         <p>
-          <i :class="{iconMy:n==1,iconMyShow:n==2}"></i>
+          <i :class="{iconMy:number==1,iconMyShow:number==2}"></i>
         </p>
-        <p :class="{tabbarSelect:n==2,tabbarWord:n==1}">我的</p>
+        <p :class="{tabbarSelect:number==2,tabbarWord:number==1}">我的</p>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
       margin: 9px auto 0;
       background: url("../assets/imgs/wode_n@2x.png") no-repeat left/100%;
     }
-     .iconMyShow {
+    .iconMyShow {
       display: block;
       width: 17px;
       height: 18px;
@@ -76,7 +76,6 @@
       line-height: 14px;
     }
     .tabbarSelect {
-    
       margin-top: 1px;
       color: #2cad88;
       font-size: 10px;
@@ -87,17 +86,26 @@
 </style>
 <script>
 export default {
-    name:"tabbar",
-    data(){
-        return{           
-            n:1
-        }
-    },
-    methods: {
-    onclick:function(n){
-        this.n=n;
-       this.$emit('click',n);
+  name: "tabbar",
+  props: ["number"],
+
+
+  methods: {
+    onclick: function(n) {
+      let btnNumber = n;
+      if (btnNumber == 1) {
+        this.$router.push({
+          //核心语句
+          path: "/" //跳转的路径
+        });
+      } else {
+        this.$router.push({
+          //核心语句
+          path: "/homesignln" //跳转的路径
+        });
+      }
+      this.$emit("click", n);
     }
-  },
-}
+  }
+};
 </script>

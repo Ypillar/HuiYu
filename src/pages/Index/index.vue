@@ -39,7 +39,7 @@
         <small>王昆老师/讲师团</small>
       </p>
     </div>
-    <tabbar @click="onclick($event)"></tabbar>  
+    <tabbar :number="1"></tabbar>  
   </div>
 </template>
 <style lang="scss" scoped>
@@ -128,13 +128,7 @@
     }
   }
   
-  .padBottom:after {
-    width: 100%;
-    height: 70px;
-    content: ".";
-    display: block;
-    visibility: hidden;
-  }
+  
 }
 </style>
 

@@ -119,7 +119,6 @@
       },
         payAgin:function(){
             //重新支付
-            //this.forward.payment(this.curriculumInfo.order,this.curriculumInfo.name,this.curriculumInfo.price,this.curriculumInfo.count);
             this.$router.go(0)
             //this.showResult=false;
         }

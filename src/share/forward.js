@@ -36,6 +36,7 @@ export default {
     },
     // 操作指南内容，type为auth、sign、appoint、exchange、login
     helpDetail:(type)=>{
+        if(!type){comm.msg("type不能为空");return;}
         router.push('/HelpDetail?type='+type);
     },
     // 消息中心
@@ -44,16 +45,16 @@ export default {
     },
     // 能量详情（经营,代理商）,type=custom|agent 进入代理商视图、普通用户视图，id为能量的ID，用于获取显示内容
     curriculum:(id,type)=>{
-        if(!id)return "课程id不能为空";
+        if(!id){comm.msg("课程id不能为空");return;}
         type = type?type:"custom";
         router.push(`/Curriculum?type=${type}&id=${id}`);
     },
     // 支付页面,order订单号，课程名，票价单价，数量
     payment:(order,name,price,count)=>{
-        if(!order)return "订单号为空";
-        if(!name)return "课程名为空";
-        if(!price)return "票价为空";
-        if(!count)return "数量为空";
+        if(!order){comm.msg("订单号为空");return;}
+        if(!name){comm.msg("课程名为空");return;}
+        if(!price){comm.msg("票价为空");return;}
+        if(!count){comm.msg("数量为空");return;}
         router.push(`/Payment?order=${order}&name=${name}&price=${price}&count=${count}`);
     },
     // 兑换券页面 type 1未使用，2已送出，3已使用

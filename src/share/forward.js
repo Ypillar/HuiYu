@@ -1,9 +1,8 @@
 'use strict'
 import router from '../router';
-import { Toast   } from 'mint-ui';
 import comm from './common'
 let noDev = function(){
-    Toast({message: "功能开发中，路由暂无法跳转"});
+    comm.msg("功能开发中，路由暂无法跳转");
 }
 export default {
     index:()=>{

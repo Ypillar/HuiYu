@@ -105,25 +105,20 @@
     <div v-if="pageObj.type==='charge'" class="bottom-btn-palce"></div>
     <bottom-btn v-if="pageObj.type==='charge'" :fixed="true" :disable="false" title="购买"  v-on:click="onCharge()"></bottom-btn>
 
-    <mt-popup v-model="showBuy" position="bottom" class="mint-popup mint-popup-4 mint-popup-bottom">
-        <div class="center relative" style="height:300px;" :style="{width:comm.getClientWidth()+'px'}">
-            <div style="width:100%;border-bottom:1px solid #e3e3e3;height:35px;line-height:35px;font-size:16px;" 
-            class="center relative">
-              购买
-              <i class="fa fa-times absolute" style="right:10px;top:8px;" @click="showBuy=false" aria-hidden="true"></i>
-            </div>
-        </div>
-    </mt-popup>
+    <buy-popup :visible="showBuy" :price="parseFloat(`${pageObj.price}.${pageObj.price_decimal}`)" :id="pageObj.id"
+      v-on:close="showBuy=false" v-on:submit="onChoiceCount($event)">
+    </buy-popup>
   </div>
 </template>
 
 <script>
   import regex from '../../share/regex'
+  import BuyPopup from './BuyPopup'
   export default {
     name: 'Curriculum',
     data() {
       return {
-        type:"agent",//custom客户 agent 时为代理商
+        type:this.$route.query.type,//custom客户 agent 时为代理商
         showBuy:false,
         selectId: 1,
         pageObj: {
@@ -191,14 +186,25 @@
       }
     },
     methods: {
+      onChoiceCount:function(e){
+        // 请求服务器创建订单，跳转到支付页面
+        let f = this.forward.payment("12321","幸福能量","99.00",e);
+        if(f){
+          // 有错误信息
+          this.comm.msg(f)
+        }
+      },
       onCharge:function(){
+        // this.forward.login();
         this.showBuy=true;
       }
     },
     mounted() {
       console.log("query参数", this.$route.query)
     },
-    components: {}
+    components: {
+      BuyPopup
+    }
   }
 
 </script>
@@ -367,5 +373,6 @@
     font-weight: 400;
     line-height: 21px;
   }
+  
 
 </style>

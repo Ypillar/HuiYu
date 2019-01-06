@@ -49,7 +49,8 @@ export default{
     // 提示信息
     msg:txt=>{
         Toast({
-            message: txt
+            message: txt,
+            // duration:-1
         })
     },
     //

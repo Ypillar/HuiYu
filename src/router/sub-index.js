@@ -18,5 +18,10 @@ export default [
         name: 'Curriculum',
         component: resolve => require(['@/pages/Curriculum/Curriculum'],resolve),
       },
-      
+      // 能量支付页面
+      {
+        path: '/Payment',
+        name: 'Payment',
+        component: resolve => require(['@/pages/Curriculum/Payment'],resolve),
+      },
     ] 

@@ -1,6 +1,6 @@
 <template>
   <div class="btn_page" @click="onclick()">
-    <div class="btn pointer" :class="[theme,size?size:'big',disable?theme==='dark'?'disabeld-btn-dark':'disabeld-btn-light':'',angle?'':'radius']">
+    <div class="btn pointer" :class="[theme,size?size:'big',disable?'disabeld-btn-'+theme:'',angle?'':'radius']">
       <slot></slot>
     </div>
   </div>
@@ -60,15 +60,7 @@ display: inline-block;
   line-height: 20px;
   font-size: 14px;
 }
-.disabeld-btn-light{
-  border: 1px solid #D8D8D8!important;
-  color:rgb(175, 175, 175)!important;
-}
-.disabeld-btn-dark{
-  border: 1px solid #D8D8D8!important;
-  background-color: #D8D8D8!important;
-  color:rgb(161, 161, 161)!important;
-}
+
 .radius{
   border-radius: 25px;
 }
@@ -85,4 +77,21 @@ display: inline-block;
   .light{
     color: #2CAD88;
   }
+  .light-no-border{
+    border: 1px solid transparent;
+    color: #2CAD88;
+  }
+
+  .disabeld-btn-light{
+  border: 1px solid #D8D8D8!important;
+  color:rgb(175, 175, 175)!important;
+}
+.disabeld-btn-dark{
+  border: 1px solid #D8D8D8!important;
+  background-color: #D8D8D8!important;
+  color:rgb(161, 161, 161)!important;
+}
+.disabeld-btn-light-no-border{
+  color:rgb(175, 175, 175)!important;
+}
 </style>

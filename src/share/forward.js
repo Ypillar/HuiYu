@@ -3,7 +3,7 @@ import router from '../router';
 import { Toast   } from 'mint-ui';
 import comm from './common'
 let noDev = function(){
-    Toast({message: "功能开发中"});
+    Toast({message: "功能开发中，路由暂无法跳转"});
 }
 export default {
     index:()=>{
@@ -15,11 +15,32 @@ export default {
     },
     // 客服页面
     service:()=>{
+        router.push('/CustomerService');
+    },
+    // 设置页面
+    setup:()=>{
+        router.push('/SetUp');
+    },
+    // 设置-编辑资料
+    editSelfInfo:()=>{
+        //router.push('/editSelfInfo');
         noDev();
+    },
+    //关于我们
+    aboutUs:()=>{
+        router.push('/aboutUs');
+    },
+    //操作指南首页
+    help:()=>{
+        router.push('/help');
+    },
+    // 操作指南内容，type为auth、sign、appoint、exchange、login
+    helpDetail:(type)=>{
+        router.push('/HelpDetail?type='+type);
     },
     // 消息中心
     messageCenter:()=>{
-        noDev();
+        noDev()
     },
     // 能量详情（经营,代理商）,type=custom|agent 进入代理商视图、普通用户视图，id为能量的ID，用于获取显示内容
     curriculum:(id,type)=>{

@@ -79,8 +79,13 @@ export default{
         //MessageBox(title||'提示', txt);
         return MessageBox.alert(txt,title||'提示');
     },
-    confirm:(txt,title)=>{
-        return MessageBox.confirm(txt,title||"提示")
+    confirm:(message,title,opt={})=>{
+        return MessageBox(Object.assign({
+            message,
+            title:title||"提示",
+            showConfirmButton:true,
+            showCancelButton:true
+        },opt))
     },
 
     // 加载状态遮罩控制

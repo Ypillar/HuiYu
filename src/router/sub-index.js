@@ -24,4 +24,34 @@ export default [
         name: 'Payment',
         component: resolve => require(['@/pages/Curriculum/Payment'],resolve),
       },
+      // 客服界面
+      {
+        path: '/CustomerService',
+        name: 'CustomerService',
+        component: resolve => require(['@/pages/My/CustomerService'],resolve),
+      },
+      // 设置
+      {
+        path: '/SetUp', 
+        name: 'SetUp',
+        component: resolve => require(['@/pages/My/SetUp'],resolve),
+      },
+      // 关于我们
+      {
+        path: '/AboutUs', 
+        name: 'AboutUs',
+        component: resolve => require(['@/pages/My/AboutUs'],resolve),
+      },
+      // 操作指南导航页
+      {
+        path: '/Help', 
+        name: 'Help',
+        component: resolve => require(['@/pages/My/Help'],resolve),
+      },
+      // 操作指南
+      {
+        path: '/HelpDetail', 
+        name: 'HelpDetail',
+        component: resolve => require(['@/pages/My/HelpDetail'],resolve),
+      },
     ] 

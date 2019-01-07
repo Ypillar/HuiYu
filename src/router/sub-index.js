@@ -54,4 +54,10 @@ export default [
         name: 'HelpDetail',
         component: resolve => require(['@/pages/My/HelpDetail'],resolve),
       },
+      // 兑换券
+      {
+        path: '/ExchangeCenter', 
+        name: 'ExchangeCenter',
+        component: resolve => require(['@/pages/My/ExchangeCenter/ExchangeCenter'],resolve),
+      },
     ] 

@@ -30,9 +30,9 @@
               <div class="inline-block">合计</div>
               <div style="float:right;color:#2CAD88">￥{{total.toFixed(2)}}</div>
             </div>
-            <div style="width:100%;border-top:1px solid #e3e3e3;">
-              <c-button class="inline-block" theme="light-no-border" size="mid" :angle="true" @click.native="$emit('close')" style="width:49%;">取消</c-button>
-              <c-button class="inline-block" theme="dark"  size="mid" :angle="true" @click.native="onSubmit()" style="width:50%;">提交</c-button>
+            <div style="width:100%;height:50px;;border-top:1px solid #e3e3e3;">
+              <c-button class="inline-block absolute" theme="light-no-border" size="mid" :angle="true" @click.native="$emit('close')" style="width:49%;left:0;">取消</c-button>
+              <c-button class="inline-block absolute" theme="dark"  size="mid" :angle="true" @click.native="onSubmit()" style="width:49%;right:0;">提交</c-button>
             </div>
         </div>
     </mt-popup>

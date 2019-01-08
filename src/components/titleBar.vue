@@ -37,6 +37,7 @@ export default {
 <style scoped>
 .header-page{
   border-bottom:1px solid #e3e3e3;
+  box-shadow:0px 2px 4px 0px rgba(18,117,88,0.12);
 }
 .mint-header{
   color:#222222;

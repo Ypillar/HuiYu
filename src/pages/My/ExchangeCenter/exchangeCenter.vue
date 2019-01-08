@@ -7,24 +7,19 @@
         <div class="link" @click="forward.helpDetail('exchange')">教程</div>
       </div>
     </title-bar>
-    <navbar :group="[{id:1,name:'未使用'},{id:2,name:'已送出'},{id:3,name:'已使用'}]" :select="type" v-on:click="navClick($event)"></navbar>
-    
-    <!-- 未使用 -->
-    <div v-if="type=='1'" style="height:200px;overflow:auto;">
-      <mt-loadmore v-on:bottom-status-change="handleBottomChange" v-on:bottom-method="loadBottom" :bottom-all-loaded="allLoaded"
-        bottomPullText="up" ref="loadmore">
-      <ul>
-        <li style="height:80px" v-for="(item,index) in list" :key="index">{{index}}{{ item.message }}</li>
-      </ul>
-    </mt-loadmore>
-    </div>
-    <!-- 已送出 -->
-    <div v-if="type=='2'">
 
-    </div>
-    <!-- 已使用 -->
-    <div v-if="type=='3'">
+    <van-tabs v-model="active" v-on:click="changeTab">
+      <van-tab v-for="(item,index) in tabs" :title="item.name" :key="index"></van-tab>
+    </van-tabs>
 
+    <div :style="{height:comm.getClientHeight()-95+'px'}" style="overflow:scroll">
+      <van-pull-refresh v-model="isRefresh" @refresh="onRefresh">
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了~" @load="onLoad" :offset="50">
+          <div v-for="(item, index) in list" :key="index" style="height:30px;border:1px solid; margin-bottom:10px;">
+            {{active}} {{item}}
+          </div>
+        </van-list>
+      </van-pull-refresh>
     </div>
   </div>
 </template>
@@ -35,77 +30,74 @@
     name: 'ExchangeCenter',
     data() {
       return {
-        type: this.$route.query.type,
-        allLoaded: false,
-        page: 0,
-        list: [{
-          message: ''
+        isRefresh: false,
+
+        loading: false,
+        finished: false,
+
+        tabs: [{
+          id: 1,
+          name: '未使用'
         }, {
-          message: ''
+          id: 2,
+          name: '已送出'
         }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
+          id: 3,
+          name: '已使用'
         }],
-        bottomStatus: ''
+        type: this.$route.query.type || 1,
+        active: 0,
+        list: []
       }
     },
     methods: {
-      navClick: function (e) {
-        this.type = e.id;
-      },
-      handleTopChange: function (status) {
-        this.topStatus = status;
-        console.log("this.topStatus = " + status);
-      },
-
-      handleBottomChange: function (status) {
-        this.bottomStatus = status;
-        console.log("this.bottomStatus = status; " + status);
-      },
-
-      getList: function (page) {
-        this.list = this.list.concat([{
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }, {
-          message: ''
-        }]);
-      },
-
-      loadBottom: function () {
-        console.log("上拉在执行");
-        this.page = this.page + 1;
-        console.log("this.page:" + this.page);
-        this.getList(this.page);
-        if (this.page == 5) {
-          this.allLoaded = true; //当所有数据 全部读取完成的时候 停止下拉读取数据 
+      loadList(){
+        // 根据选中的tag请求不同的地址
+        let list = [];
+        for (let i = 0; i < 20; i++) {
+          list.push(this.comm.getGuid());
         }
-        this.$refs.loadmore.onBottomLoaded();
+        return list;
+      },
+      changeTab(idx){
+        console.log(idx)
+        this.list=[];
+        this.finished = false;
+        this.loading = true;
+        this.onLoad();
+      },
+      // 下拉刷新
+      onRefresh() {
+        setTimeout(() => {
+          this.finished = false;
+          this.isRefresh = false;
+          let list = this.loadList();
+          if(list.length===0){
+            this.finished = true;
+          }else{
+            this.list = list;
+          }
+        }, 500);
+      },
+      // 上拉加载
+      onLoad() {
+        console.log(1111)
+        // 异步更新数据
+        setTimeout(() => {
+          let list = this.loadList();
+          if(list.length===0){
+            this.finished = true;
+          }else{
+            this.list = this.list.concat(list);
+          }
+          // 加载状态结束
+          this.loading = false;
+        }, 1000);
       }
     },
     mounted() {
       console.log("query参数", this.$route.query);
-      // TODO 查询订单状态是否可以支付
+      this.active = this.tabs.findIndex(p => p.id == this.type);
     },
     components: {}
   }
@@ -114,8 +106,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .navbar>div {
-    font-size: 20px !important;
-  }
+
 
 </style>

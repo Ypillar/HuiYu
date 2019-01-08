@@ -188,6 +188,7 @@
     methods: {
       onChoiceCount:function(e){
         // 请求服务器创建订单，跳转到支付页面
+        this.showBuy=false;
         this.forward.payment("12321","幸福能量","99.00",e);
       },
       onCharge:function(){

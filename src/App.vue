@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import "./assets/font-awesome-4.7.0/fonts/font.css";
 #app {
   overflow: auto;
@@ -25,5 +25,7 @@ export default {
   color: #2c3e50; */
   /* margin-top: 60px; */
 }
-.van-dialog__confirm{color:#2CAD88;}/* 确认框按钮颜色 */
+$color-primary: #2CAD88;
+.van-dialog__confirm{color:$color-primary;}/* 确认框按钮颜色 */
+.van-tabs__line{background-color:$color-primary;}
 </style>

@@ -4,9 +4,10 @@ import Vue from 'vue'
 import './assets/css/init.css'
 import './assets/css/share.css'
 import './assets/font-awesome-4.7.0/css/font-awesome.min.css'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-import './assets/css/my-mint.scss';//全局修改mint-UI样式
+// import MintUI from 'mint-ui'
+// import 'mint-ui/lib/style.css'
+// import './assets/css/my-mint.scss';//全局修改mint-UI样式
+import vantUi from './vant-components';
 import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
@@ -15,14 +16,15 @@ import cache from './share/cache';
 import forward from './share/forward'
 // import validate from './share/validate'
 
+
 Vue.use(VueResource);
-Vue.use(MintUI);
+// Vue.use(MintUI);
 // Vue.use(validate);
 
 /**
  * 导入自定义公用组件
  */
-import titleBar from './components/custom-components';
+import customComponents from './components/custom-components';
 
 // import Vue from 'vue'
 // import { Header,Field } from 'mint-ui';

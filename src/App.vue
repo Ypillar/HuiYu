@@ -25,4 +25,5 @@ export default {
   color: #2c3e50; */
   /* margin-top: 60px; */
 }
+.van-dialog__confirm{color:#2CAD88;}/* 确认框按钮颜色 */
 </style>

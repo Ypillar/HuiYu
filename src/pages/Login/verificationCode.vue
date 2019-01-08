@@ -2,18 +2,17 @@
   <div class="center" style="padding-top:40px;">
     <div class="login-info">
       <div style="margin-top:20px;">
-        <div class="tleft mobile-title" style="margin-left:35px;">
+        <div class="tleft mobile-title" style="margin-left:15px;width:100%;">
           接受验证码手机号码: {{mobile}}
         </div>
-        <div class="inline-block" style="width:12%;height:33px;">
-          <img src="../../assets/imgs/yanzhengma@2x.png" style="vertical-align:middle;">
-        </div>
-        <div class="inline-block" style="width:70%">
-          <mt-field label="" v-model="vcode" :attr="{ maxlength: 6 }" type="number" placeholder="请输入验证码">
-            <div style="color:#999999;width:80px;" @click="getSms()" v-if="interval<=0">获取验证码</div>
-            <div style="color:#999999;width:80px;text-align:center" v-if="interval>0">{{interval}} 秒</div>
-          </mt-field>
-        </div>
+        
+        <van-cell-group>
+          <van-field v-model="vcode" placeholder="请输入验证码" type="tel" maxlength="6">
+            <img slot="left-icon" src="../../assets/imgs/yanzhengma@2x.png" style="vertical-align:middle;height:24px;margin-right:10px;">
+            <div slot="button" style="color:#999999;width:80px;" @click="getSms()" v-if="interval<=0">获取验证码</div>
+            <div slot="button" style="color:#999999;width:80px;text-align:center" v-if="interval>0">{{interval}} 秒</div>
+          </van-field>
+        </van-cell-group>
       </div>
     </div>
     <div style="margin-top:30px;">
@@ -52,6 +51,7 @@
         // http校验无误hi后跳转到首页
       },
       getSms: function () {
+        if(!regex.isMobile(this.mobile)){this.comm.msg("手机号码非法");return;}
         if (this.interval <= 0) {
           this.interval = 10;
         } else {

@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 .btn_page{
-display: inline-block;
+  display: inline-block;
 }
 .big{
   min-width:120px;height:35px;

@@ -36,6 +36,7 @@ export default {
 
 <style scoped>
 .page .icon{
+  height:30px;
     position: relative;
 }
 .page .icon>i{
@@ -49,6 +50,7 @@ export default {
     background-color: red;
     border-radius: 20px;
     right: 0;
+    top:10px;
 }
  
 </style>

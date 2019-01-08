@@ -1,13 +1,14 @@
 <template>
-  <div class="page center inline-block">
-    <mt-popup v-model="visible" popup-transition="popup-fade">
-        <div class="center relative">
+  <div class="page center relative inline-block">
+    <van-popup v-model="visible" :close-on-click-overlay="false" v-on:click-overlay="$emit('close')">
+        <div class="center">
             <slot name="content"></slot>
-            <div class="absolute close">
-                <i class="pointer fa fa-times-circle-o" @click="$emit('close')" aria-hidden="true"></i>
-            </div>
+            <!--  -->
         </div>
-    </mt-popup>
+    </van-popup>
+    <!-- <div class="close">
+        <i class="pointer fa fa-times-circle-o" @click="$emit('close')" aria-hidden="true"></i>
+    </div> -->
   </div>
 </template>
 
@@ -37,7 +38,9 @@ export default {
 
 <style scoped>
 .close{
-    font-size: 25px;margin-left: 48%;margin-top: 20px;color:white;
+    font-size: 20px;margin-left: 48%;margin-top: 20px;color:white;
+    position: fixed;
+    z-index: 9999;
 }
  
 </style>

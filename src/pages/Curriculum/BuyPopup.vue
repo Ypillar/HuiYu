@@ -1,7 +1,7 @@
 <template>
   <div class="center">
-    <mt-popup v-model="visible" position="bottom" :closeOnClickModal="false" class="mint-popup mint-popup-4 mint-popup-bottom">
-        <div class="center relative tleft" style="height:337px;" :style="{width:comm.getClientWidth()+'px'}">
+    <van-popup v-model="visible" position="bottom" :close-on-click-overlay="false" style="border: 1px solid white;">
+        <div class="center relative tleft" style="height:357px;" :style="{width:comm.getClientWidth()+'px'}">
             <div class="center relative titleBar">
               购买
               <i class="fa fa-times absolute" style="right:10px;top:8px;" @click="$emit('close')" aria-hidden="true"></i>
@@ -22,7 +22,7 @@
                   v-for="(item, index) in choice" :key="index">{{item.count}}
                  </div>
                  <div class="inline-block center radius choice-item" style="width:60px" @click="onCustom()" :class="[choiceItem===-1?'choice-item-select':'']">
-                   <input type="number" style="width:60px;border:none;" @blur="onCustomBlur()" v-model="customCount" placeholder="其他数量" oninput="if(value.length>6)value=value.slice(0,6)" class="center">
+                   <input type="number" style="width:50px;border:none;height:20px;" maxlength="6" @blur="onCustomBlur()" v-model="customCount" placeholder="其他" oninput="if(value.length>6)value=value.slice(0,6)" class="center">
                  </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
               <c-button class="inline-block absolute" theme="dark"  size="mid" :angle="true" @click.native="onSubmit()" style="width:49%;right:0;">提交</c-button>
             </div>
         </div>
-    </mt-popup>
+    </van-popup>
   </div>
 </template>
 
@@ -109,7 +109,7 @@ import regex from '../../share/regex'
 .price{margin:14px 14px 0px;padding:0px 0px 14px;height:22px;text-align:left;font-size:16px;border-bottom:1px solid #e3e3e3;}
 .choice{font-size:16px;padding:14px;}
 .choice-item{
-  height:30px;;line-height:30px;width:54px;border:1px solid #e3e3e3;margin:0px 5px;color:#999;
+  height:30px;line-height:30px;width:55px;border:1px solid #e3e3e3;margin:0px 3px;color:#999;
 }
 .choice-item-select{
   border:1px solid #2CAD88!important;

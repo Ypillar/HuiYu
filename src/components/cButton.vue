@@ -56,7 +56,14 @@ export default {
   font-size: 16px;
 }
 .small{
-  min-width:80px;height:20px;
+  min-width:80px;height:26px;
+  line-height: 26px;
+  font-size: 12px;
+}
+
+.mini{
+  padding:2px 5px!important;
+  min-width:54px;height:20px;
   line-height: 20px;
   font-size: 14px;
 }

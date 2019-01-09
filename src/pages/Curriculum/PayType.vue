@@ -27,6 +27,7 @@
     name: 'PayType',
     props: {
       value: String,
+      options:Array
     },
     model: {
       prop: 'value',
@@ -35,23 +36,7 @@
     data() {
       return {
         //value: "weixin",
-        options: [{
-            label: '微信支付',
-            value: 'weixin',
-            img:"static/image/weixinzhifu@2x.png"
-          },
-          {
-            label: '银联支付',
-            value: 'unionpay',
-            img:"static/image/yinlianzhifu@2x.png"
-          },
-          {
-            label: '对公转账',
-            value: 'transfer',
-            img:"static/image/duigongzhuanzhang@2x.png",
-            desc:"对公转账需要在转账后上传付款凭证"
-          }
-        ]
+        //options: 
       }
     },
     methods: {

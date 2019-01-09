@@ -1,36 +1,30 @@
 <template>
   <div>
-    <button v-on:click="count++">You clicked me {{ count }} times.</button>
-    <slot name="aa"></slot>
-    完成
-    <slot name="bb"></slot>
+
   </div>
 </template>
 
 <script>
+//import regex from '../../../share/regex'
+  export default {
+    name: '_NAME_',
+    data() {
+      return {
 
-export default {
-  name:"test-c",
-  data () {
-    return {
-      count: 0
-    }
-  },
-//   methods: {
-//     handleClick: function() {
-//       this.$toast('Hello world!');
-//     }
-//   },
-//   mounted(){
-//     Vue.http.get("http://localhost:8080").then(function(res){
-//         // console.log(res)
-//     }).catch(function(){
+      }
+    },
+    methods: {
+      
+    },
+    mounted() {
+     this.comm.debug("query参数", this.$route.query)
+    },
+    components: {}
+  }
 
-//     });
-//   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>

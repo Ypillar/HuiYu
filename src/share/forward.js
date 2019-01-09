@@ -56,17 +56,26 @@ export default {
         if(!count){comm.msg("数量为空");return;}
         router.push(`/Payment?order=${order}&name=${name}&price=${price}&count=${count}`);
     },
-    // 兑换券页面 type 1未使用，2已送出，3已使用
+    // 兑换中心兑换券页面 type 1未使用，2已送出，3已使用
     coinCertificate:(type=1)=>{
         router.push(`/ExchangeCenter?type=${type}`);
     },
     //代理商生成兑换券
     generate:()=>{
-        noDev();
+        router.push('/Generate');
     },
     // 订单管理列表,type 1 待审核、2付款、3、待签到、4待确认、5已完成
     order:(type)=>{
         noDev();
+    },
+    // 使用兑换券,id为兑换券编号
+    useExchangeCoupon(id){
+        if(!id){comm.msg("兑换券编号为空");return;}
+        router.push(`/SeatPayment?id=${id}`);
+    },
+    // 赠送兑换券,id为兑换券编号
+    giveExchangeCoupon(id){
+        if(!id){comm.msg("兑换券编号为空");return;}
+        noDev();
     }
-
 }

@@ -60,6 +60,8 @@
           click：event 当按钮没有disabled时会触发
        -->
       按钮样式示例<br>
+      <c-button  theme="dark" v-on:click="onclick()"  size="mini" style="margin-right:20px;">最小号按钮</c-button>
+      <br><br>
       <c-button  theme="dark" v-on:click="onclick()"  size="small" style="margin-right:20px;">小号按钮</c-button>
       <br><br>
       <c-button  theme="light" v-on:click="onclick()" size="mid">中号按钮</c-button>
@@ -88,7 +90,7 @@
         
        -->
       <div class="bottom-btn-palce"></div>
-      <bottom-btn :fixed="true" :disable="false" title="提交订单"  v-on:click="onclick()"></bottom-btn>
+      <bottom-btn :fixed="true" :disable="false" title="提交订单" show-service="true" show-home="true" v-on:click="onclick()"></bottom-btn>
        
        <!-- 首页tabbar，直接复制过去就可以用，selected就是选中的item的id -->
       <!-- <mt-tabbar v-model="selected" style="z-index:999;">

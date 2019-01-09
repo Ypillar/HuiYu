@@ -131,6 +131,52 @@ export default{
         };
         return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
     },
+    stringLoop(len,char){
+        var str ="";
+        while(len>0){
+           str+=char;
+           len--;
+        }
+        return str;
+     },
+     padString(val,len,lOrR,char){
+        if (typeof(val) != "string")
+           val = String(val);
+        var MANY_ZEROS = this.stringLoop(len,char);
+        switch(lOrR.toLocaleString()){
+           case "l":return (MANY_ZEROS.substring(0, len - val.length)) + val;break;
+           default:return val+(MANY_ZEROS.substring(0, len - val.length));break;
+        }
+     },
+     /*
+      * 生成指定范围的随机数
+      */
+     getRandom(min, max) {
+        if(min===undefined)min=0;
+        if(max===undefined)max=100;
+        return Math.floor(min + Math.random() * (max - min+1));
+     },
+     /*
+      * 生成指定位数的随机数, len1表示长度，format为C时表示返回字符串，否则返回float
+      */
+     getRandomByLen(len1,format) {
+        if(!len1 || len1<1)len1=1;
+        var t = len1;
+        var result="";
+        while(t>0){
+           if(t>16){
+              var min = parseFloat(this.padString("1",16,"R","0"));
+              var max = parseFloat(this.padString("9",16,"R","9"));
+              result += this.getRandom(min,max);
+           }else{
+              var min = parseFloat(this.padString("1",t,"R","0"));
+              var max = parseFloat(this.padString("9",t,"R","9"));
+              result += this.getRandom(min,max);
+           }
+           t-=16;
+        }
+        return format==="N"?parseFloat(result):result;
+     },
 
     getClientHeight(){
         var clientHeight=0;

@@ -67,13 +67,13 @@
           id: 1,
           count: 1
         }, {
-          id: 20,
+          id: 2,
           count: 20
         }, {
-          id: 50,
+          id: 3,
           count: 50
         }, {
-          id: 100,
+          id: 4,
           count: 100
         }]
       }

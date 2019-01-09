@@ -60,4 +60,17 @@ export default [
         name: 'ExchangeCenter',
         component: resolve => require(['@/pages/My/ExchangeCenter/ExchangeCenter'],resolve),
       },
+      //生成兑换券
+      {
+        path: '/Generate',
+        name: 'Generate',
+        component: resolve => require(['@/pages/My/ExchangeCenter/generate'],resolve),
+      },
+      // 支付占座费
+      {
+        path: '/SeatPayment',
+        name: 'SeatPayment',
+        component: resolve => require(['@/pages/My/ExchangeCenter/SeatPayment'],resolve),
+      },
+      
     ] 

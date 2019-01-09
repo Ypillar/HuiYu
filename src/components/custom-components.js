@@ -22,8 +22,8 @@ Vue.component(modal.name,modal);
 import tabbar from './tabbar';// tabbar首页和我的
 Vue.component(tabbar.name,tabbar);
 
-import navbar from './navbar';// navbar
-Vue.component(navbar.name,navbar);
+// import navbar from './navbar';// navbar
+// Vue.component(navbar.name,navbar);
 export default {
     //titleBar,resultPage,cButton
   }

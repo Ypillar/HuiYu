@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 支付方式组件
+ -->
 <template>
   <div class="tleft paytype">
     <div class="title">

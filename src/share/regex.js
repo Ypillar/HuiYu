@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 常用正则服务
+ */
 'use strict'
 var regs = {
     isMobile:function(str){

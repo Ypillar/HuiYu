@@ -1,9 +1,14 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-08 09:47:25
+ * @Description: 兑换中心页面
+ -->
 <template>
   <div class="tleft">
     <title-bar title="兑换中心" :back="true">
       <div slot="right">
-        <!-- 右上角要放自己的按钮，或其他html，放这里，比如这里放了一个消息组件 -->
-        <div class="link" @click="forward.generate()">生成</div>
+        <!-- 生成按钮只有代理商、分公司才显示 -->
+        <div class="link" @click="forward.generate()" v-if="showGenerate">生成</div>
         <div class="link" @click="forward.helpDetail('exchange')">教程</div>
       </div>
     </title-bar>
@@ -72,6 +77,8 @@
     name: 'ExchangeCenter',
     data() {
       return {
+        showGenerate:true,// 代理商、分公司才设置为true
+
         showBlank:false,
         isRefresh: false,
 

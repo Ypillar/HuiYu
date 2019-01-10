@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: comm工具函数服务
+ */
 'use strict'
 import Vue from 'vue'
 //import cfg from 'static/config'

@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 操作指南列表页面
+ -->
 <template>
   <div class="aboutus">
     <title-bar title="操作指南手册" :back="true">

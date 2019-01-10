@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 跳转路由服务，负责跳转参数的校验、跳转
+ */
 'use strict'
 import router from '../router';
 import comm from './common'
@@ -64,7 +69,7 @@ export default {
     generate:()=>{
         router.push('/Generate');
     },
-    // 订单管理列表,type 1 待审核、2付款、3、待签到、4待确认、5已完成
+    // 订单管理列表,type 1 待审核、2待付款、3、待签到、4待确认、5已完成
     order:(type)=>{
         noDev();
     },
@@ -76,6 +81,6 @@ export default {
     // 赠送兑换券,id为兑换券编号
     giveExchangeCoupon(id){
         if(!id){comm.msg("兑换券编号为空");return;}
-        noDev();
+        router.push(`/GiveExchangeCoin?id=${id}`);
     }
 }

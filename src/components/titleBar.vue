@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 标题栏封装，back为false时不显示返回按钮 title不传默认显示config配置的名称
+ -->
 <template>
   <div class="header-page">
     <van-nav-bar :title="title || appName" left-text="" :left-arrow="true">

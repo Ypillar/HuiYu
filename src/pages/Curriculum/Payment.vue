@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 课程购买支付页面
+ -->
 <template>
   <div class="center" style="background-color:rgb(251, 251, 251);">
     <div v-show="!showResult">

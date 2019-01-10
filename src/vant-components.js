@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-08 13:56:46
+ * @Description: vantui组件按需加载，需要使用的vantui组件在这里注册
+ */
 import Vue from 'vue';
 
 // 全局祖册vantui组件

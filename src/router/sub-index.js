@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 避免和袁柱代码冲突，我的路由都写到一个子路由文件，后期可以合并到一起
+ */
 
 export default [
       // 绑定手机号码
@@ -72,5 +77,16 @@ export default [
         name: 'SeatPayment',
         component: resolve => require(['@/pages/My/ExchangeCenter/SeatPayment'],resolve),
       },
-      
+      // 赠送电子券
+      {
+        path: '/GiveExchangeCoin',
+        name: 'GiveExchangeCoin',
+        component: resolve => require(['@/pages/My/ExchangeCenter/GiveExchangeCoin'],resolve),
+      },
+      // 接收赠送电子券
+      {
+        path: '/ReceiveCoin',
+        name: 'ReceiveCoin',
+        component: resolve => require(['@/pages/My/ExchangeCenter/ReceiveCoin'],resolve),
+      },
     ] 

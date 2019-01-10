@@ -1,3 +1,9 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 底部按钮组，属性fixed固定底部，disable禁用主按钮，title主按钮标题，showHome true表示显示主页按钮，showService true表示显示联系客服
+                支持一个click事件，绑定到主按钮上
+ -->
 <template>
   <div class="page tleft relative" :style="{zIndex:fixed?'998':'1'}" :class="[fixed?'fixed':'']" ref="refpage">
     <div class="service inline-block" @click="clickService()" v-if="showService">

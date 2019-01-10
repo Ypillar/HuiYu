@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-08 09:54:06
+ * @Description: 已弃用
+ -->
 <template>
   <div class="page center navbar">
     <div class="navitem" v-for="(item, index) in group" :key="index" :style="{width:(100/group.length)-1+'%'}" @click="$emit('click',item)">

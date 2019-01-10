@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-09 10:57:48
+ * @Description: 已弃用
+ -->
 <template>
   <div :style="{height:height+'px'}" style="overflow:scroll">
     <van-pull-refresh v-model="isRefresh" @refresh="onRefresh">

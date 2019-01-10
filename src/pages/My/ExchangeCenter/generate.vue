@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-09 14:44:46
+ * @Description: 生成兑换券页面
+ -->
 <template>
   <div>
     <div v-if="!showResult">

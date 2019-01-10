@@ -1,6 +1,12 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-09 15:31:50
+ * @Description: 兑换券使用（支付占座费）
+ -->
 <template>
   <div class="seatPayment">
-    <div class="notice">
+    <div v-show="!showResult">
+      <div class="notice">
       <font class="bold">温馨提示：</font>请认真确认参课地点和参课信息，如确认无误请支付占座费领取签到码，按所选信息前往签到处确认。
     </div>
     <div class="choice">
@@ -99,6 +105,27 @@
 
     <div class="bottom-btn-palce"></div>
     <bottom-btn :fixed="true" :disable="false" title="确认并支付" show-service="true" v-on:click="onSubmit()"></bottom-btn>
+    </div>
+    <div v-show="showResult">
+      <!-- <result-page image="zhifushibai_qs@2x.png" title="支付失败" sub-title="" desc="订单将于24:00:00后自动取消，请及时支付">
+        <div slot="btn">
+          <c-button  theme="light" v-on:click="forward.order(2)"  size="small" style="margin-right:20px;">稍后支付</c-button>
+          <c-button  theme="dark" v-on:click="$router.go(0)"  size="small">重新支付</c-button>
+        </div>
+      </result-page> -->
+      <!-- <result-page image="zhfuchneggong_qs@2x.png" title="支付成功" sub-title="￥1000.00" desc="请前往「我的-待签到」订单查看课程签到码">
+        <div slot="btn">
+          <c-button  theme="light" v-on:click="forward.index()"  size="small" style="margin-right:20px;">返回首页</c-button>
+          <c-button  theme="dark" v-on:click="forward.order(1)"  size="small">查看订单</c-button>
+        </div>
+      </result-page> -->
+      <result-page image="zhfuchneggong_qs@2x.png" title="代缴成功" sub-title="￥1000.00" desc="参课信息已通过短信告知了Ta，请提醒本人携带好证件准时参课">
+        <div slot="btn">
+          <c-button  theme="light" v-on:click="forward.index()"  size="small" style="margin-right:20px;">返回首页</c-button>
+          <c-button  theme="dark" v-on:click="forward.order(1)"  size="small">查看订单</c-button>
+        </div>
+      </result-page>
+    </div>
   </div>
 </template>
 
@@ -109,12 +136,13 @@
     name: 'SeatPayment',
     data() {
       return {
+        showResult:false,
         id: this.$route.query.id, //兑换券
         select: 1,
         payType: "weixin",
         uploadImg:false,
         isProxy: true,// 是否代理商
-        forOther:"1",// 是否为他人代缴
+        forOther:"0",// 是否为他人代缴
         hasPersonalInfo: true,// 是否有个人信息
         isBack: true, //是否可退
         price: "200.00", //占席费用
@@ -161,7 +189,9 @@
       }
     },
     methods: {
-      
+      submtOrder(){
+        this.showResult=true;
+      },
       onSubmit() {
         if((this.isProxy && this.forOther==="1")||(!this.isProxy && !this.hasPersonalInfo)||(this.isProxy && this.forOther==="0" && !this.hasPersonalInfo)){
           // 1.代理商且为他人支付
@@ -174,9 +204,12 @@
           if(!regex.isIDCard(this.inputPersonal.cert)){this.comm.msg("请填写合法的身份证号码");return false;}
         }
         
+
+
         // 其他情况不需要校验输入
         // 1.个人用户没有认证信息
         // 2.代理商没有认证信息且为自己买课，为他人买课不提醒
+        let that = this;
         if ((!this.isProxy && !this.hasPersonalInfo) || (this.isProxy && !this.hasPersonalInfo && this.forOther==="0")) {
           this.comm.confirm("参课信息是否同步到您个人资料信息， 下次无需再输入信息？ ", "温馨提示", {
               cancelButtonText: "暂不同步",
@@ -185,12 +218,16 @@
             .then(() => {
               // 提交服务器修改设置
               // 同步信息并占位
+              that.submtOrder();
             }).catch(() => {
               //直接占位
+              that.submtOrder();
             });
         } else {
           // 直接占位
+          that.submtOrder();
         }
+
       }
     },
     mounted() {

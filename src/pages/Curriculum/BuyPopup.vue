@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 购买数量组件
+ -->
 <template>
   <div class="center">
     <van-popup v-model="visible" position="bottom" :close-on-click-overlay="false" style="border: 1px solid white;">

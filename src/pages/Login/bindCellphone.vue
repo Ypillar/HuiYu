@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 微信登录后绑定手机号码
+ -->
 <template>
   <div class="center" style="padding-top:40px;">
     <div class="login-info">

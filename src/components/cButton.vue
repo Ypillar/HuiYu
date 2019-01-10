@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 按钮，支持disable禁用，theme dark和light，size 支持4种大小，angle true表示直角按钮，以及一个click事件
+ -->
 <template>
   <div class="btn_page" @click="onclick()">
     <div class="btn pointer" :class="[theme,size?size:'big',disable?'disabeld-btn-'+theme:'',angle?'':'radius']">
@@ -16,7 +21,7 @@ export default {
   props: {
     disable: Boolean,// true禁用，禁用不会执行点击事件
     theme: String,//dark light
-    size: String,// big mid small
+    size: String,// big mid small mini
     angle:Boolean// true为直角边框
   },
   data () {

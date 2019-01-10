@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 我的设置
+ -->
 <template>
   <div class="setup">
     <title-bar title="我的设置" :back="true">

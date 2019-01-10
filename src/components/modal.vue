@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: modal弹窗封装，支持一个visible属性和close事件
+ -->
 <template>
   <div class="page center relative inline-block">
     <van-popup v-model="visible" :close-on-click-overlay="false" v-on:click-overlay="$emit('close')">

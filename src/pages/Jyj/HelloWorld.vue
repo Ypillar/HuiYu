@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 各种自定义组件展示、测试
+ -->
 <template>
   <div class="hellowworld">
 
@@ -24,6 +29,12 @@
       <van-button type="primary" @click.native="ontest()">主要按钮</van-button>
       <van-button type="primary" @click.native="comm.loaded()">主要按钮</van-button>
 
+      <br>复制内容到剪切板<br>
+      <clip-board copy="这里是要复制的内容，我来了啊">
+        <button>复制内容到剪切板</button>
+      </clip-board>
+
+      <br>title bar：<br>
       <!-- 标题栏，支持title、back，back表示是否显示返回，title不设置默认显示config文件配置的appName -->
       <title-bar title="" :back="true">
         <div slot="right">
@@ -127,7 +138,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'HelloWorld',
   data () {
@@ -144,14 +154,14 @@ export default {
     ontest:function(){
       //this.comm.msgBox(12312)
       this.comm.confirm("关闭消息后，无法收到任何消息， 是否确定关闭? ","温馨提示",{confirmButtonText:"确认关闭",cancelButtonText:"我再想想"})
-                .then(()=>{
-                  // 提交服务器修改设置
-                  console.log(111)
-                  console.log(111,this.value)
-                }).catch(() => {
-                  console.log(222)
-                  this.value=true;
-                });
+      .then(()=>{
+        // 提交服务器修改设置
+        console.log(111)
+        console.log(111,this.value)
+      }).catch(() => {
+        console.log(222)
+        this.value=true;
+      });
     },
     // 添加一个定时调度
     addtask:function(){

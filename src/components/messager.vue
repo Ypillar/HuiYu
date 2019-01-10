@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 消息组件，支持title显示到图标下方，支持color改变图标颜色
+ -->
 <template>
   <div class="page center inline-block">
     <div class="icon">

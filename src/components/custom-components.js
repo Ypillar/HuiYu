@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 所有自定义组件在这里注册
+ */
 import Vue from 'vue';
 
 
@@ -22,8 +27,8 @@ Vue.component(modal.name,modal);
 import tabbar from './tabbar';// tabbar首页和我的
 Vue.component(tabbar.name,tabbar);
 
-// import navbar from './navbar';// navbar
-// Vue.component(navbar.name,navbar);
+import clipBoard from './clipBoard';// 剪切板
+Vue.component(clipBoard.name,clipBoard);
 export default {
     //titleBar,resultPage,cButton
   }

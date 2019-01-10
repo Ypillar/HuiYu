@@ -45,7 +45,12 @@ export default {
     },
     // 消息中心
     messageCenter:()=>{
-        noDev()
+        router.push('/InformationList');
+    },
+    // 消息详细列表 type 1 系统消息 2认证消息 3课程通知
+    messageDetail:(type,title)=>{
+        if(!type){comm.msg("消息类型type不能为空");return;}
+        router.push(`/InformationDetail?type=${type}&title=${title}`);
     },
     // 能量详情（经营,代理商）,type=custom|agent 进入代理商视图、普通用户视图，id为能量的ID，用于获取显示内容
     curriculum:(id,type)=>{

@@ -89,4 +89,16 @@ export default [
         name: 'ReceiveCoin',
         component: resolve => require(['@/pages/My/ExchangeCenter/ReceiveCoin'],resolve),
       },
+      // 消息中心
+      {
+        path: '/InformationList',
+        name: 'InformationList',
+        component: resolve => require(['@/pages/Information/InformationList'],resolve),
+      },
+      // 消息详情列表
+      {
+        path: '/InformationDetail',
+        name: 'InformationDetail',
+        component: resolve => require(['@/pages/Information/InformationDetail'],resolve),
+      },
     ] 

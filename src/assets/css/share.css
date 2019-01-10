@@ -83,6 +83,10 @@
     padding:14px;
 }
 
+.gray-bgc{
+    background-color: #fbfbfb;
+}
+
 .font-20{
     font-size:20px;
 font-weight:600;

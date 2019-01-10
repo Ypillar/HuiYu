@@ -13,19 +13,19 @@
       </div>
     </title-bar>
     <van-cell title="认证操作指南" @click.native="forward.helpDetail('auth')" is-link value="" style="border-top:1px solid #efefef;">
-      <img slot="icon" src="../../assets/imgs/renzhengzhinan@2x.png" width="24" height="24">
+      <img slot="icon" src="../../assets/imgs/renzhengzhinan@2x.png" width="24" height="24" style="margin-right:5px;">
     </van-cell>
     <van-cell title="签到操作指南" @click.native="forward.helpDetail('sign')" is-link value="" style="border-top:1px solid #efefef;">
-      <img slot="icon" src="../../assets/imgs/qiandaozhinan@2x.png" width="24" height="24">
+      <img slot="icon" src="../../assets/imgs/qiandaozhinan@2x.png" width="24" height="24" style="margin-right:5px;">
     </van-cell>
      <van-cell title="预约操作指南" @click.native="forward.helpDetail('appoint')" is-link value="" style="border-top:1px solid #efefef;">
-       <img slot="icon" src="../../assets/imgs/yuyuezhinan@2x.png" width="24" height="24">
+       <img slot="icon" src="../../assets/imgs/yuyuezhinan@2x.png" width="24" height="24" style="margin-right:5px;">
     </van-cell>
      <van-cell title="兑换操作指南" @click.native="forward.helpDetail('exchange')" is-link value="" style="border-top:1px solid #efefef;">
-       <img slot="icon" src="../../assets/imgs/duihuanzhinan@2x.png" width="24" height="24">
+       <img slot="icon" src="../../assets/imgs/duihuanzhinan@2x.png" width="24" height="24" style="margin-right:5px;">
     </van-cell>
      <van-cell title="登录操作指南" @click.native="forward.helpDetail('login')" is-link value="" style="border-top:1px solid #efefef;">
-       <img slot="icon" src="../../assets/imgs/dengluzhinan@2x.png" width="24" height="24">
+       <img slot="icon" src="../../assets/imgs/dengluzhinan@2x.png" width="24" height="24" style="margin-right:5px;">
     </van-cell>
   </div>
 </template>

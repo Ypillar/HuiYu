@@ -108,7 +108,8 @@
         console.log("查询：",page);
         return new Promise((resolve, reject)=>{
             let list = [];
-            for (let i = 0; i < 20; i++) {
+            if(this.list.length<3){
+            for (let i = 0; i < 3; i++) {
               if(that.active===0){
                 list.push({
                   id:that.comm.getRandomByLen(18),
@@ -137,8 +138,11 @@
                 });
               }
             }
+}
             setTimeout(()=>{
               this.showBlank=true;
+            },3000)
+            setTimeout(()=>{
               resolve(list);
             },1000)
             
@@ -156,6 +160,7 @@
         this.page=1;
         let that = this;
         this.loadList(this.page).then((list) => {
+          console.log(list,3333)
           that.list = [];
           that.finished = false;
           that.isRefresh = false;

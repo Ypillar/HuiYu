@@ -1,7 +1,12 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 课程购买支付页面
+ -->
 <template>
   <div class="center" style="background-color:rgb(251, 251, 251);">
     <div v-show="!showResult">
-      <pay-type v-model="checked"></pay-type>
+      <pay-type v-model="checked" :options="payTypeOptions"></pay-type>
       <div class="transeInfo tleft" v-if="checked==='transfer'">
         <div class="title">
           汇款信息如下:
@@ -51,7 +56,7 @@
         </div>
       </div>
       <div class="bottom-btn-palce" style="background-color:white;"></div>
-      <bottom-btn :fixed="true" :disable="false" title="确认并支付" v-on:click="charge()"></bottom-btn>
+      <bottom-btn :fixed="true" :disable="false" title="确认并支付" show-service="true" v-on:click="charge()"></bottom-btn>
     </div>
     <div v-show="showResult">
         <!-- 操作成功 -->
@@ -94,7 +99,24 @@
           order: this.$route.query.order,
           price: this.$route.query.price,
           count: this.$route.query.count
-        }
+        },
+        payTypeOptions:[{
+            label: '微信支付',
+            value: 'weixin',
+            img:"static/image/weixinzhifu@2x.png"
+          },
+          {
+            label: '银联支付',
+            value: 'unionpay',
+            img:"static/image/yinlianzhifu@2x.png"
+          },
+          {
+            label: '对公转账',
+            value: 'transfer',
+            img:"static/image/duigongzhuanzhang@2x.png",
+            desc:"对公转账需要在转账后上传付款凭证"
+          }
+        ]
       }
     },
     methods: {

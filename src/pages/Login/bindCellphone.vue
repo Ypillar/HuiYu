@@ -1,13 +1,20 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 微信登录后绑定手机号码
+ -->
 <template>
   <div class="center" style="padding-top:40px;">
     <div class="login-info">
       <div style="margin-top:20px;">
-        <div class="inline-block" style="width:12%;height:33px;">
-          <img src="../../assets/imgs/shoujihao@2x.png" style="vertical-align:middle;">
-        </div>
-        <div class="inline-block" style="width:70%">
-          <mt-field label="" v-model="mobile" type="tel" :attr="{ maxlength: 11 }" placeholder="请输入手机号"></mt-field>
-        </div>
+
+<van-cell-group>
+          <van-field v-model="mobile" placeholder="请输入手机号" type="tel" maxlength="11">
+            <img slot="left-icon" src="../../assets/imgs/shoujihao@2x.png" style="vertical-align:middle;height:24px;margin-right:10px;">
+
+          </van-field>
+        </van-cell-group>
+        
       </div>
     </div>
     <div style="margin-top:30px;">

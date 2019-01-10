@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 步骤条（工作流），使用方法见pages/jyj/HelloWorld.vue
+ -->
 <template>
   <div class="page center" ref="refpage">
     <!-- <div class="wleft inline-block relative">

@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 缓存服务，sCache、lCache、mCahce分别对应sessionstorage、localstorage、memory（内存变量）每种缓存下有get、set、exist、remove4种方法
+ */
 'use strict'
 //import cfg from 'static/config'
 

@@ -1,12 +1,19 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 标题栏封装，back为false时不显示返回按钮 title不传默认显示config配置的名称
+ -->
 <template>
   <div class="header-page">
-    <mt-header :title="title || appName">
-        <mt-button slot="left" v-if="back" @click="returnPage()" icon="back" style="color:black;"></mt-button>
-        <!-- <mt-button icon="more"  slot="right"></mt-button> -->
-        <div slot="right">
-            <slot name="right"></slot> 
-        </div>
-    </mt-header>
+    <van-nav-bar :title="title || appName" left-text="" :left-arrow="true">
+      <van-icon name="arrow-left" size="20px" slot="left" style="color:black;" v-if="back" @click="returnPage()"/>
+      <div slot="left" v-if="!back"></div>
+      <!-- <mt-button slot="left"   icon="back" style="color:black;"></mt-button> -->
+      <div slot="right">
+          <slot name="right"></slot> 
+      </div>
+      <!-- <van-icon name="search" slot="right" /> -->
+    </van-nav-bar>
   </div>
 </template>
 
@@ -37,9 +44,7 @@ export default {
 <style scoped>
 .header-page{
   border-bottom:1px solid #e3e3e3;
-}
-.mint-header{
-  color:#222222;
+  box-shadow:0px 2px 4px 0px rgba(18,117,88,0.12);
 }
 
 </style>

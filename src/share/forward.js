@@ -1,3 +1,8 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 跳转路由服务，负责跳转参数的校验、跳转
+ */
 'use strict'
 import router from '../router';
 import comm from './common'
@@ -40,7 +45,12 @@ export default {
     },
     // 消息中心
     messageCenter:()=>{
-        noDev()
+        router.push('/InformationList');
+    },
+    // 消息详细列表 type 1 系统消息 2认证消息 3课程通知
+    messageDetail:(type,title)=>{
+        if(!type){comm.msg("消息类型type不能为空");return;}
+        router.push(`/InformationDetail?type=${type}&title=${title}`);
     },
     // 能量详情（经营,代理商）,type=custom|agent 进入代理商视图、普通用户视图，id为能量的ID，用于获取显示内容
     curriculum:(id,type)=>{
@@ -56,17 +66,26 @@ export default {
         if(!count){comm.msg("数量为空");return;}
         router.push(`/Payment?order=${order}&name=${name}&price=${price}&count=${count}`);
     },
-    // 兑换券页面 type 1未使用，2已送出，3已使用
+    // 兑换中心兑换券页面 type 1未使用，2已送出，3已使用
     coinCertificate:(type=1)=>{
         router.push(`/ExchangeCenter?type=${type}`);
     },
     //代理商生成兑换券
     generate:()=>{
-        noDev();
+        router.push('/Generate');
     },
-    // 订单管理列表,type 1 待审核、2付款、3、待签到、4待确认、5已完成
+    // 订单管理列表,type 1 待审核、2待付款、3、待签到、4待确认、5已完成
     order:(type)=>{
         noDev();
+    },
+    // 使用兑换券,id为兑换券编号
+    useExchangeCoupon(id){
+        if(!id){comm.msg("兑换券编号为空");return;}
+        router.push(`/SeatPayment?id=${id}`);
+    },
+    // 赠送兑换券,id为兑换券编号
+    giveExchangeCoupon(id){
+        if(!id){comm.msg("兑换券编号为空");return;}
+        router.push(`/GiveExchangeCoin?id=${id}`);
     }
-
 }

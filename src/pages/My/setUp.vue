@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 我的设置
+ -->
 <template>
   <div class="setup">
     <title-bar title="我的设置" :back="true">
@@ -7,16 +12,17 @@
         <!-- <messager title="" color="black"></messager> -->
       </div>
     </title-bar>
-    <mt-cell title="消息开关">
-        <mt-switch v-model="value" v-on:change="change()"></mt-switch>
-    </mt-cell>
+    <van-cell title="消息开关">
+      <!-- <mt-switch v-model="value" v-on:change="change()"></mt-switch> -->
+      <van-switch :value="value" :loading="isLoad" @input="change" size="20px" active-color="#05AFAF" />
+    </van-cell>
 
-    <mt-cell title="编辑资料" @click.native="forward.editSelfInfo()" is-link value="" style="margin-top:5px;">
-    </mt-cell>
-    <mt-cell title="操作指南" @click.native="forward.help()" is-link value="" style="border-top:1px solid #efefef;">
-    </mt-cell>
-    <mt-cell title="关于我们" @click.native="forward.aboutUs()" is-link value="" style="border-top:1px solid #efefef;">
-    </mt-cell>
+    <van-cell title="编辑资料" @click.native="forward.editSelfInfo()" is-link value="" style="margin-top:5px;">
+    </van-cell>
+    <van-cell title="操作指南" @click.native="forward.help()" is-link value="" style="border-top:1px solid #efefef;">
+    </van-cell>
+    <van-cell title="关于我们" @click.native="forward.aboutUs()" is-link value="" style="border-top:1px solid #efefef;">
+    </van-cell>
   </div>
 </template>
 
@@ -26,27 +32,33 @@
     name: 'SetUp',
     data() {
       return {
-        value:true
+        value: true,
+        isLoad: true
       }
     },
     methods: {
-        change:function(){
-            if(!this.value){
-                this.comm.confirm("关闭消息后，无法收到任何消息， 是否确定关闭? ","温馨提示",{confirmButtonText:"确认关闭",cancelButtonText:"我再想想"})
-                .then((action)=>{
-                    if(action==='cancel'){
-                        this.value=true;
-                    }else{
-                        // 提交服务器修改设置
-                        console.log(111,this.value)
-                    }
-                })
-            }
+      change: function (checked) {
+        if (!checked) {
+          this.comm.confirm("关闭消息后，无法收到任何消息， 是否确定关闭? ", "温馨提示", {
+              confirmButtonText: "确认关闭",
+              cancelButtonText: "我再想想"
+            })
+            .then(() => {
+              // 提交服务器修改设置
+              console.log(111, this.value)
+              this.value = checked;
+            }).catch(() => {
+              this.value = true;
+            });
+        } else {
+          this.value = checked;
         }
+      }
     },
     mounted() {
       // TODO 查询消息开关
-      this.value=true;
+      this.value = true;
+      this.isLoad = false;
     },
     components: {}
   }

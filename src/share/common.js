@@ -1,12 +1,21 @@
+/*
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: comm工具函数服务
+ */
 'use strict'
 import Vue from 'vue'
 //import cfg from 'static/config'
 import router from '../router';
 import cache from './cache';
 import schedule from './schedule';
-import { Toast,MessageBox,Indicator   } from 'mint-ui';
+// import { Toast,MessageBox,Indicator   } from 'mint-ui';
 // import { Loading } from 'element-ui';
+import { Toast,Dialog } from 'vant';
+Vue.use(Toast);
+Vue.use(Dialog)
 
+let loading=null;
 // let loadingInstance = null;
 export default{
     // http
@@ -55,48 +64,36 @@ export default{
     },
     //
     msgSuccess:txt=>{
-        Toast({
-            message: txt||'操作成功',
-            iconClass: 'mint-toast-icon mintui mintui-success msg-icon-size',
-            // duration:-1
-        });
-    },
-    msgWarning:txt=>{
-        Toast({
-            message: txt,
-            iconClass: 'fa fa-exclamation-circle msg-error-icon-size',
-            // duration:-1
-        });
+        Toast.success(txt||'操作成功');
     },
     msgError:txt=>{
-        Toast({
-            message: txt,
-            iconClass: 'fa fa-times msg-error-icon-size',
-            // duration:-1
-        });
+        Toast.fail(txt||'操作失败');
     },
     msgBox:(txt,title)=>{
         //MessageBox(title||'提示', txt);
-        return MessageBox.alert(txt,title||'提示');
+        return Dialog.alert({
+            title: title||'提示',
+            message: txt
+          });
     },
     confirm:(message,title,opt={})=>{
-        return MessageBox(Object.assign({
+        return Dialog.confirm(Object.assign({
             message,
-            title:title||"提示",
-            showConfirmButton:true,
-            showCancelButton:true
-        },opt))
+            title:title||"提示"
+        },opt));
     },
 
     // 加载状态遮罩控制
     loading:(txt)=>{
-        Indicator.open({
-            text: txt || '请稍候...',
-            spinnerType: 'fading-circle'
-        });
+        loading = Toast.loading({
+            duration: 0,       // 持续展示 toast
+            forbidClick: true, // 禁用背景点击
+            loadingType: 'spinner',
+            message: txt||'请稍候'
+          });
     },
     loaded:()=>{
-        Indicator.close();
+        if(loading)loading.clear();
     },
 
     // 登录状态
@@ -139,6 +136,52 @@ export default{
         };
         return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
     },
+    stringLoop(len,char){
+        var str ="";
+        while(len>0){
+           str+=char;
+           len--;
+        }
+        return str;
+     },
+     padString(val,len,lOrR,char){
+        if (typeof(val) != "string")
+           val = String(val);
+        var MANY_ZEROS = this.stringLoop(len,char);
+        switch(lOrR.toLocaleString()){
+           case "l":return (MANY_ZEROS.substring(0, len - val.length)) + val;break;
+           default:return val+(MANY_ZEROS.substring(0, len - val.length));break;
+        }
+     },
+     /*
+      * 生成指定范围的随机数
+      */
+     getRandom(min, max) {
+        if(min===undefined)min=0;
+        if(max===undefined)max=100;
+        return Math.floor(min + Math.random() * (max - min+1));
+     },
+     /*
+      * 生成指定位数的随机数, len1表示长度，format为C时表示返回字符串，否则返回float
+      */
+     getRandomByLen(len1,format) {
+        if(!len1 || len1<1)len1=1;
+        var t = len1;
+        var result="";
+        while(t>0){
+           if(t>16){
+              var min = parseFloat(this.padString("1",16,"R","0"));
+              var max = parseFloat(this.padString("9",16,"R","9"));
+              result += this.getRandom(min,max);
+           }else{
+              var min = parseFloat(this.padString("1",t,"R","0"));
+              var max = parseFloat(this.padString("9",t,"R","9"));
+              result += this.getRandom(min,max);
+           }
+           t-=16;
+        }
+        return format==="N"?parseFloat(result):result;
+     },
 
     getClientHeight(){
         var clientHeight=0;

@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 课程详情页面
+ -->
 <template>
   <div class="center">
     <div class="head-img">
@@ -62,7 +67,7 @@
             签到地点：
           </div>
           <div class="text tleft">
-            {{item.signAddr}}
+            {{item.signAddr || "待定"}}
           </div>
         </div>
         <div class="info-row">
@@ -70,6 +75,7 @@
             签到时间：
           </div>
           <div class="text tleft">
+            <div v-if="!item.signTime">待定</div>
             <div v-for="t in item.signTime" :key="t">
               {{ t }}
             </div>
@@ -103,7 +109,7 @@
       </div>
     </div>
     <div v-if="pageObj.type==='charge'" class="bottom-btn-palce"></div>
-    <bottom-btn v-if="pageObj.type==='charge'" :fixed="true" :disable="false" title="购买"  v-on:click="onCharge()"></bottom-btn>
+    <bottom-btn v-if="pageObj.type==='charge'" :fixed="true" :disable="false" title="购买"  show-service="true" show-home="true" v-on:click="onCharge()"></bottom-btn>
 
     <buy-popup :visible="showBuy" :price="parseFloat(`${pageObj.price}.${pageObj.price_decimal}`)" :id="pageObj.id"
       v-on:close="showBuy=false" v-on:submit="onChoiceCount($event)">
@@ -188,6 +194,7 @@
     methods: {
       onChoiceCount:function(e){
         // 请求服务器创建订单，跳转到支付页面
+        this.showBuy=false;
         this.forward.payment("12321","幸福能量","99.00",e);
       },
       onCharge:function(){

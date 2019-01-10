@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 关于我们页面
+ -->
 <template>
   <div class="aboutus">
     <title-bar title="关于我们" :back="true">

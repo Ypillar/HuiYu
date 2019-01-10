@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 各种自定义组件展示、测试
+ -->
 <template>
   <div class="hellowworld">
 
@@ -11,6 +16,25 @@
 
 
     <div v-if="!showResult">
+      <br>签到/图片modal示例<br>
+      <c-button theme="dark" v-on:click="popupVisible=true" size="big" style="width:100%;">弹出签到</c-button>
+      <modal :visible="popupVisible" v-on:close="popupVisible=false">
+        <div slot="content">
+          <div style="width:300px;height:200px;">
+            弹窗内容，图片、自定义的元素
+          </div>
+        </div>
+      </modal>
+
+      <van-button type="primary" @click.native="ontest()">主要按钮</van-button>
+      <van-button type="primary" @click.native="comm.loaded()">主要按钮</van-button>
+
+      <br>复制内容到剪切板<br>
+      <clip-board copy="这里是要复制的内容，我来了啊">
+        <button>复制内容到剪切板</button>
+      </clip-board>
+
+      <br>title bar：<br>
       <!-- 标题栏，支持title、back，back表示是否显示返回，title不设置默认显示config文件配置的appName -->
       <title-bar title="" :back="true">
         <div slot="right">
@@ -47,6 +71,8 @@
           click：event 当按钮没有disabled时会触发
        -->
       按钮样式示例<br>
+      <c-button  theme="dark" v-on:click="onclick()"  size="mini" style="margin-right:20px;">最小号按钮</c-button>
+      <br><br>
       <c-button  theme="dark" v-on:click="onclick()"  size="small" style="margin-right:20px;">小号按钮</c-button>
       <br><br>
       <c-button  theme="light" v-on:click="onclick()" size="mid">中号按钮</c-button>
@@ -57,7 +83,7 @@
       <br><br>
       <c-button  theme="light" v-on:click="onclick()"  size="big" :angle="true">直角按钮</c-button>
       <br><br>
-      <c-button  theme="light" v-on:click="onclick()" v-bind:disable="disbtn"  size="big" style="margin-right:20px;width:100%;">100%宽度-禁用</c-button>
+      <c-button  theme="light" v-on:click="onclick()" v-bind:disable="disbtn"  size="big" style="width:100%;">100%宽度-禁用</c-button>
       <br><br>
       <c-button  theme="dark" v-on:click="onclick()" v-bind:disable="disbtn"  size="big" style="width:100%;">100%宽度-禁用</c-button>
 
@@ -67,15 +93,7 @@
       <c-button theme="dark" v-on:click="destroytask()"  size="big">注销任务调度</c-button>
 
       <!-- 用变量popupVisible来控制modal的显示和隐藏，为content的slot中写弹窗的具体内容 -->
-      <br>签到/图片modal示例<br>
-      <c-button theme="dark" v-on:click="popupVisible=true" size="big" style="width:100%;">弹出签到</c-button>
-      <modal :visible="popupVisible" v-on:close="popupVisible=false">
-        <div slot="content">
-          <div style="width:300px;height:200px;">
-            弹窗内容，图片、自定义的元素
-          </div>
-        </div>
-      </modal>
+      
 
 
       <!-- 左侧联系客服，右侧为按钮，支持fixed固定底部，禁用右侧按钮，标题，点击事件
@@ -83,7 +101,7 @@
         
        -->
       <div class="bottom-btn-palce"></div>
-      <bottom-btn :fixed="true" :disable="false" title="提交订单"  v-on:click="onclick()"></bottom-btn>
+      <bottom-btn :fixed="true" :disable="false" title="提交订单" show-service="true" show-home="true" v-on:click="onclick()"></bottom-btn>
        
        <!-- 首页tabbar，直接复制过去就可以用，selected就是选中的item的id -->
       <!-- <mt-tabbar v-model="selected" style="z-index:999;">
@@ -120,7 +138,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'HelloWorld',
   data () {
@@ -134,6 +151,18 @@ export default {
     }
   },
   methods: {
+    ontest:function(){
+      //this.comm.msgBox(12312)
+      this.comm.confirm("关闭消息后，无法收到任何消息， 是否确定关闭? ","温馨提示",{confirmButtonText:"确认关闭",cancelButtonText:"我再想想"})
+      .then(()=>{
+        // 提交服务器修改设置
+        console.log(111)
+        console.log(111,this.value)
+      }).catch(() => {
+        console.log(222)
+        this.value=true;
+      });
+    },
     // 添加一个定时调度
     addtask:function(){
       this.task = this.comm.addSchedule({
@@ -177,15 +206,19 @@ export default {
       //this.$toast('Hello world!');
       // this.comm.msgSuccess();
       //this.comm.msg("操作警告");
-      this.comm.msgWarning("操作警告");
       //this.comm.msgError("加速动力开发就")
       //this.comm.msgBox("sdfsf");
       // this.comm.msgBox("sdfsf").then(()=>{
-      //   //alert(1)
+      //   alert(1)
       // });
-      // this.comm.confirm("sffff").then(()=>{
-      //   //alert(234234)
-      // })
+      this.comm.confirm("sffff")
+      .then(()=>{
+        // 确定
+        alert(1)
+      }).catch(() => {
+        // 取消
+        alert(2)
+      });
     },
   },
   mounted(){
@@ -200,5 +233,7 @@ export default {
   .hellowworld{
     padding-bottom: 80px;
   }
+
+  /* .van-button__text{color:red!important} */
   
 </style>

@@ -1,3 +1,8 @@
+<!--
+ * @Author: JuYangjia
+ * @Date: 2019-01-07 14:43:30
+ * @Description: 显示操作结果模板，使用方法见page/jyj/HelloWorld.vue
+ -->
 <template>
   <div class="page">
     <!-- <title-bar title="" back="">

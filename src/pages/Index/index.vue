@@ -190,40 +190,43 @@
         margin-top: 0.5rem;
         margin-left: 1.8rem;
       }
-      .signAddres{
-        width:8.8rem;
-height:2.8rem;
-font-size:2rem;
-font-family:PingFangSC-Medium;
-font-weight:500;
-color:#FFFFFF;
-line-height:2.8rem;
-margin-top: 2rem;
-margin-left: 1.8rem;
+      .signAddres {
+        width: 8.8rem;
+        height: 2.8rem;
+        font-size: 2rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 2.8rem;
+        margin-top: 2rem;
+        margin-left: 1.8rem;
       }
-      .addres{
-width:16rem;
-height:4.4rem;
-font-size:1.6rem;
-font-family:PingFangSC-Regular;
-font-weight:400;
-color:#FFFFFF;
-line-height:2.2rem;
-margin-left: 1.8rem;
-margin-top: 1rem;
-text-align: left;
-
+      .addres {
+        width: 16rem;
+        height: 4.4rem;
+        font-size: 1.6rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 2.2rem;
+        margin-left: 1.8rem;
+        margin-top: 1rem;
+        text-align: left;
       }
-      .btn{
-width:13rem;
-height:4.1rem;
-background:linear-gradient(136deg,rgba(255,173,144,1) 0%,rgba(253,106,99,1) 100%);
-border-radius:8px;
-line-height: 4.1rem;
-color: #fff;
-margin-top: 2rem;
-margin-left: 1.8rem;
-font-size: 2rem;
+      .btn {
+        width: 13rem;
+        height: 4.1rem;
+        background: linear-gradient(
+          136deg,
+          rgba(255, 173, 144, 1) 0%,
+          rgba(253, 106, 99, 1) 100%
+        );
+        border-radius: 8px;
+        line-height: 4.1rem;
+        color: #fff;
+        margin-top: 2rem;
+        margin-left: 1.8rem;
+        font-size: 2em;
       }
     }
   }

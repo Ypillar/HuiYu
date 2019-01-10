@@ -23,9 +23,9 @@ export default new Router({
       component: resolve => require(['@/pages/login/login'],resolve),
     },
     {
-      path: '/homesignln',//首页我的
-      name: 'HomeSignln',
-      component: resolve => require(['@/pages/My/Home/homeSignIn'],resolve),
+      path: '/home',//首页我的
+      name: 'Home',
+      component: resolve => require(['@/pages/My/Home/home'],resolve),
     },
     {
       path: '/verify',//核实身份证
@@ -46,6 +46,11 @@ export default new Router({
       path: '/checkInGroupVerifiesSuccess',//核实成功
       name: 'CheckInGroupVerifiesSuccess',
       component: resolve => require(['@/pages/My/CheckInGroup/checkInGroupVerifiesSuccess'],resolve),
+    },
+    {
+      path: '/personalInformation',//核实成功
+      name: 'PersonalInformation',
+      component: resolve => require(['@/pages/LecturerInResidence/personalInformation'],resolve),
     },
   ].concat(subIndex)
 })

@@ -101,7 +101,7 @@ export default {
       } else {
         this.$router.push({
           //核心语句
-          path: "/homesignln" //跳转的路径
+          path: "/home" //跳转的路径
         });
       }
       this.$emit("click", n);

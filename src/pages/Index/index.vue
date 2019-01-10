@@ -1,5 +1,20 @@
 <template>
   <div class="box">
+    <div class="signIn">
+      <modal :visible="popupVisible" v-on:close="popupVisible=false">
+        <div class="signInBack" slot="content">
+          <div class="headName">
+            <img src="../../assets/imgs/20150318165059_VUt4x.jpeg" alt>
+            <span>王艳丽最美</span>
+          </div>
+          <p class="className">《经营能量》</p>
+          <p class="signMsg">签到时间已到，请前往签到处</p>
+          <p class="signAddres">签到地点</p>
+          <p class="addres">北市朝阳区某某酒店2楼会议室</p>
+          <p class="btn">立即签到</p>
+        </div>
+      </modal>
+    </div>
     <div class="greet">
       <span>Hi 亲爱的王燕</span>
       <i class="rightRcon">
@@ -39,7 +54,7 @@
         <small>王昆老师/讲师团</small>
       </p>
     </div>
-    <tabbar :number="1"></tabbar>  
+    <tabbar :number="1"></tabbar>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -127,8 +142,91 @@
       width: 100%;
     }
   }
-  
-  
+  //签到弹窗
+  .signIn {
+    .signInBack {
+      width: 30rem;
+      height: 40rem;
+      background: url("../../assets/imgs/qiandao_bg@2x@2x.png") no-repeat left
+        top/100% 100%;
+      .headName {
+        padding-top: 2.8rem;
+        padding-left: 1.8rem;
+        text-align: left;
+        img {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%;
+          vertical-align: middle;
+        }
+        span {
+          font-size: 1.6rem;
+          font-family: PingFangSC-Regular;
+          font-weight: 400;
+          color: #ffffff;
+          margin-left: 1rem;
+          margin-top: 2px;
+        }
+      }
+      .className {
+        width: 144px;
+        height: 3.3rem;
+        font-size: 2.4rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 3.3rem;
+        margin-left: 0.4rem;
+        margin-top: 1.4rem;
+      }
+      .signMsg {
+        width: 20.8rem;
+        height: 2.2rem;
+        font-size: 1.6rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 2.2rem;
+        margin-top: 0.5rem;
+        margin-left: 1.8rem;
+      }
+      .signAddres{
+        width:8.8rem;
+height:2.8rem;
+font-size:2rem;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:#FFFFFF;
+line-height:2.8rem;
+margin-top: 2rem;
+margin-left: 1.8rem;
+      }
+      .addres{
+width:16rem;
+height:4.4rem;
+font-size:1.6rem;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:#FFFFFF;
+line-height:2.2rem;
+margin-left: 1.8rem;
+margin-top: 1rem;
+text-align: left;
+
+      }
+      .btn{
+width:13rem;
+height:4.1rem;
+background:linear-gradient(136deg,rgba(255,173,144,1) 0%,rgba(253,106,99,1) 100%);
+border-radius:8px;
+line-height: 4.1rem;
+color: #fff;
+margin-top: 2rem;
+margin-left: 1.8rem;
+font-size: 2rem;
+      }
+    }
+  }
 }
 </style>
 
@@ -138,12 +236,13 @@ export default {
   data() {
     return {
       //   param:this.$route.query,
-      imageUrl: this.cfg.location + "/static/image/" + "timg.jpg"
+      imageUrl: this.cfg.location + "/static/image/" + "timg.jpg",
+      popupVisible: true
     };
   },
   methods: {
     onclick(n) {
-      console.log(n)
+      console.log(n);
     }
   }
 };

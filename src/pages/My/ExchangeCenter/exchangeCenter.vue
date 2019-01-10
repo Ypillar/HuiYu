@@ -16,6 +16,10 @@
     <van-tabs v-model="active" v-on:click="changeTab">
       <van-tab v-for="(item,index) in tabs" :title="item.name" :key="index"></van-tab>
     </van-tabs>
+    
+    <!-- <result-page v-if="showNotice" image="wuduihuanquan@2x.png" title="" sub-title="" desc="暂无兑换券~"
+      style="width:100%;position:absolute;margin-top:100px;z-index:0;"  >
+    </result-page> -->
 
     <div :style="{height:comm.getClientHeight()-95+'px'}" style="overflow:scroll">
       <van-pull-refresh v-model="isRefresh" @refresh="onRefresh">
@@ -77,6 +81,7 @@
     name: 'ExchangeCenter',
     data() {
       return {
+        //showNotice:false,//暂无兑换券提示
         showGenerate:true,// 代理商、分公司才设置为true
 
         showBlank:false,
@@ -108,8 +113,7 @@
         console.log("查询：",page);
         return new Promise((resolve, reject)=>{
             let list = [];
-            if(this.list.length<3){
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 20; i++) {
               if(that.active===0){
                 list.push({
                   id:that.comm.getRandomByLen(18),
@@ -138,10 +142,11 @@
                 });
               }
             }
-}
+            
             setTimeout(()=>{
               this.showBlank=true;
-            },3000)
+              //this.showNotice = list.length===0 && this.list.length===0;
+            },2000)
             setTimeout(()=>{
               resolve(list);
             },1000)

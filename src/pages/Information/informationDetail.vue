@@ -96,7 +96,7 @@
             }
             setTimeout(()=>{
               this.showBlank=true;
-            },3000)
+            },2000)
             setTimeout(()=>{
               
               resolve(list);

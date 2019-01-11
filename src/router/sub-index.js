@@ -101,4 +101,16 @@ export default [
         name: 'InformationDetail',
         component: resolve => require(['@/pages/Information/InformationDetail'],resolve),
       },
+      // 订单
+      {
+        path: '/CourseOrderList',
+        name: 'CourseOrderList',
+        component: resolve => require(['@/pages/CourseOrder/orderList'],resolve),
+      },
+      // 订单详情
+      {
+        path: '/CourseOrderDetail',
+        name: 'CourseOrderDetail',
+        component: resolve => require(['@/pages/CourseOrder/orderDetail'],resolve),
+      },
     ] 

@@ -87,7 +87,7 @@
   }
 
   .qrborder {
-    background-color: #999;
+    background-color: rgb(230, 230, 230);
     border-radius: 4px;
     width: 200px;
     height: 200px;

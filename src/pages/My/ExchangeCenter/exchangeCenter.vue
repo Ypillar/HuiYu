@@ -23,7 +23,8 @@
 
     <div :style="{height:comm.getClientHeight()-95+'px'}" style="overflow:scroll">
       <van-pull-refresh v-model="isRefresh" @refresh="onRefresh">
-        <div ref="vlist">
+        <div ref="vlist" :style="{minHeight:comm.getClientHeight()-105 +'px'}" class="relative">
+          <result-page v-if="finished && list.length===0" image="wuduihuanquan@2x.png" title="" sub-title="" desc="暂无兑换券~" class="absolute" style="background-color:white;width:100%;"></result-page>
           <van-list v-model="loading" :finished="finished" finished-text="没有更多了~" @load="onLoad" :offset="50" class="list">
             <div v-for="(item, index) in list" :key="index" class="list-item">
               <div class="title">
@@ -69,7 +70,6 @@
             </div>
           </van-list>
         </div>
-        <div :style="{height:comm.getClientHeight()-95-$refs.vlist.offsetHeight-10 +'px'}" v-if="showBlank"></div>
       </van-pull-refresh>
     </div>
   </div>
@@ -83,10 +83,7 @@
       return {
         //showNotice:false,//暂无兑换券提示
         showGenerate:true,// 代理商、分公司才设置为true
-
-        showBlank:false,
         isRefresh: false,
-
         loading: false,
         finished: false,
 
@@ -109,20 +106,19 @@
     methods: {
       loadList(page){
         let that = this;
-        this.showBlank=false;
         console.log("查询：",page);
         return new Promise((resolve, reject)=>{
             let list = [];
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 10; i++) {
               if(that.active===0){
-                list.push({
-                  id:that.comm.getRandomByLen(18),
-                  name:"经营能量兑换券",
-                  price:'500.00',
-                  isNew:!!that.comm.getRandom(0,1),
-                  getTime:'2019-09-09 12:00:23',
-                  expireTime:'2019-10-09 12:00:23'
-                });
+                // list.push({
+                //   id:that.comm.getRandomByLen(18),
+                //   name:"经营能量兑换券",
+                //   price:'500.00',
+                //   isNew:!!that.comm.getRandom(0,1),
+                //   getTime:'2019-09-09 12:00:23',
+                //   expireTime:'2019-10-09 12:00:23'
+                // });
               }else if(that.active===1){
                 list.push({
                   id:that.comm.getRandomByLen(18),
@@ -143,10 +139,6 @@
               }
             }
             
-            setTimeout(()=>{
-              this.showBlank=true;
-              //this.showNotice = list.length===0 && this.list.length===0;
-            },2000)
             setTimeout(()=>{
               resolve(list);
             },1000)

@@ -43,7 +43,7 @@ export default new Router({
       component: resolve => require(['@/pages/My/CheckInGroup/checkInGroupList'],resolve),
     },
     {
-      path: '/checkInGroupVerifiesSuccess',//核实成功
+      path: '/checkInGroupVerifiesSuccess',//签到组核实成功
       name: 'CheckInGroupVerifiesSuccess',
       component: resolve => require(['@/pages/My/CheckInGroup/checkInGroupVerifiesSuccess'],resolve),
     },
@@ -51,6 +51,31 @@ export default new Router({
       path: '/personalInformation',//核实成功
       name: 'PersonalInformation',
       component: resolve => require(['@/pages/LecturerInResidence/personalInformation'],resolve),
+    },
+    {
+      path: '/lecturerInformation',//核实成功
+      name: 'LecturerInformation',
+      component: resolve => require(['@/pages/LecturerInResidence/lecturerInformation'],resolve),
+    },
+    {
+      path: '/entryAudit',//核实成功
+      name: 'EntryAudit',
+      component: resolve => require(['@/pages/LecturerInResidence/entryAudit'],resolve),
+    },
+    {
+      path: '/identityInformation',//讲师资料
+      name: 'IdentityInformation',
+      component: resolve => require(['@/pages/LecturerInResidence/identityInformation'],resolve),
+    },
+    {
+      path: '/entryAuditSuccess',//讲师入驻成功
+      name: 'EntryAuditSuccess',
+      component: resolve => require(['@/pages/LecturerInResidence/entryAuditSuccess'],resolve),
+    },
+    {
+      path: '/entryAuditError',//讲师入驻失败
+      name: 'EntryAuditError',
+      component: resolve => require(['@/pages/LecturerInResidence/entryAuditError'],resolve),
     },
   ].concat(subIndex)
 })

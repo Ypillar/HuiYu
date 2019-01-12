@@ -75,13 +75,17 @@ export default {
         router.push('/Generate');
     },
     // 订单管理列表,type 1 待审核、2待付款、3、待签到、4待确认、5已完成
-    order:(type)=>{
-        noDev();
+    order:(type=1)=>{
+        router.push(`/CourseOrderList?type=${type}`);
+    },
+    orderDetail:(id)=>{
+        if(!id){comm.msg("订单编号为空");return;}
+        router.push(`/CourseOrderDetail?id=${id}`);
     },
     // 使用兑换券,id为兑换券编号
-    useExchangeCoupon(id){
+    useExchangeCoupon(id,orderId=""){
         if(!id){comm.msg("兑换券编号为空");return;}
-        router.push(`/SeatPayment?id=${id}`);
+        router.push(`/SeatPayment?id=${id}&orderId=${orderId}`);
     },
     // 赠送兑换券,id为兑换券编号
     giveExchangeCoupon(id){

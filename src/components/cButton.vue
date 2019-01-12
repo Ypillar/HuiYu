@@ -70,7 +70,7 @@ export default {
   padding:2px 5px!important;
   min-width:54px;height:20px;
   line-height: 20px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .radius{

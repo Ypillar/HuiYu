@@ -232,6 +232,7 @@
     },
     mounted() {
       this.comm.debug("query参数", this.$route.query);
+      // TODO 如果传了orderId，需要根据orderId去把相关信息自动填入
     },
     components: {
       PayType

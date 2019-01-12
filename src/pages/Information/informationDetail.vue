@@ -9,7 +9,8 @@
     
       <div :style="{height:comm.getClientHeight()-50+'px'}" style="overflow:scroll">
         <van-pull-refresh v-model="isRefresh" @refresh="onRefresh">
-          <div ref="vlist" class="padding14">
+          <div ref="vlist" class="padding14 relative" :style="{minHeight:comm.getClientHeight()-80 +'px'}">
+            <!-- <result-page v-if="finished && list.length===0" image="wuduihuanquan@2x.png" title="" sub-title="" desc="暂无兑换券~" class="absolute" style="background-color:white;width:100%;"></result-page> -->
             <van-list v-model="loading" :finished="finished" finished-text="没有更多了~" @load="onLoad" :offset="50" class="list">
               <div class="msg" v-for="(item, index) in list" :key="index">
                 <van-row>
@@ -32,7 +33,6 @@
 
             </van-list>
           </div>
-          <div :style="{height:comm.getClientHeight()-50-$refs.vlist.offsetHeight-10 +'px'}" v-if="showBlank"></div>
         </van-pull-refresh>
       </div>
   </div>
@@ -44,7 +44,6 @@
     name: 'InformationDetail',
     data() {
       return {
-        showBlank:false,
         isRefresh: false,
         loading: false,
         finished: false,
@@ -81,7 +80,6 @@
       },
       loadList(page){
         let that = this;
-        this.showBlank=false;
         console.log("查询：",page);
         return new Promise((resolve, reject)=>{
             let list = [];
@@ -95,10 +93,6 @@
               // )
             }
             setTimeout(()=>{
-              this.showBlank=true;
-            },2000)
-            setTimeout(()=>{
-              
               resolve(list);
             },1000)
             

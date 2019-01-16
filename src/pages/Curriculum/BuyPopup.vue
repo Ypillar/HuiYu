@@ -6,7 +6,7 @@
 <template>
   <div class="center">
     <van-popup v-model="visible" position="bottom" :close-on-click-overlay="false" style="border: 1px solid white;">
-      <div class="center relative tleft" :style="{width:comm.getClientWidth()+'px',height:showNumberInput?'507px':'357px'}">
+      <div class="center relative tleft" :style="{width:comm.getClientWidth()+'px',height:showNumberInput?'507px':'340px'}">
         <div class="center relative titleBar">
           购买
           <i class="fa fa-times absolute" style="right:10px;top:8px;" @click="$emit('close')" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
         </div>
         <van-number-keyboard :show="showNumberInput" extra-key="" close-button-text="完成" @blur="showNumberInput = false"
           @input="onInput" @delete="onDelete" @hide="onHideNumInput" />
-        <div style="width:100%;height:50px;;border-top:1px solid #e3e3e3;">
+        <div style="width:100%;border-top:1px solid #e3e3e3;">
           <c-button class="inline-block absolute" theme="light-no-border" size="mid" :angle="true" @click.native="$emit('close')"
             style="width:49%;left:0;">取消</c-button>
           <c-button class="inline-block absolute" theme="dark" size="mid" :angle="true" @click.native="onSubmit()"

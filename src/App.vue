@@ -1,5 +1,5 @@
 <template>
-  <div id="app" ref="refpage">
+  <div id="app" ref="refpage" v-title :data-title="cfg.appName">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/font-awesome-4.7.0/fonts/font.css";
+// @import "./assets/font-awesome-4.7.0/fonts/font.css"; // main.js已经引入
 #app {
   overflow: auto;
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;

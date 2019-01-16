@@ -6,7 +6,7 @@
 <template>
   <div class="center">
     <van-popup v-model="visible" position="bottom" :close-on-click-overlay="false" style="border: 1px solid white;">
-      <div class="center relative tleft" :style="{width:comm.getClientWidth()+'px',height:showNumberInput?'507px':'340px'}">
+      <div class="center relative tleft" :style="{width:comm.getClientWidth()+'px',height:showNumberInput?'507px':'338px'}">
         <div class="center relative titleBar">
           购买
           <i class="fa fa-times absolute" style="right:10px;top:8px;" @click="$emit('close')" aria-hidden="true"></i>

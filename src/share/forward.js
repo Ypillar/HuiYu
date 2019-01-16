@@ -17,6 +17,10 @@ export default {
     login:()=>{
         router.push("/login");
     },
+    // 用户协议
+    protocol:()=>{
+        noDev();
+    },
     // 客服页面
     service:()=>{
         router.push('/CustomerService');
@@ -91,5 +95,11 @@ export default {
     giveExchangeCoupon(id){
         if(!id){comm.msg("兑换券编号为空");return;}
         router.push(`/GiveExchangeCoin?id=${id}`);
+    },
+    // 接收兑换券,id为兑换券编号
+    receiveCoupon(id){
+        if(!id){comm.msg("兑换券编号为空");return;}
+        router.push(`/ReceiveCoin?id=${id}`);
     }
+    
 }

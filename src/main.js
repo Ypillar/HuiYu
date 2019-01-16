@@ -16,6 +16,8 @@ import cache from './share/cache';
 import forward from './share/forward'
 // import validate from './share/validate'
 
+import _ from 'lodash'
+window._ = _;
 
 Vue.use(VueResource);
 // Vue.use(MintUI);

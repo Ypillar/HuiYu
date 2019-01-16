@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "clipboard": "^2.0.4",
+    "lodash": "^4.17.11",
     "sass-loader": "^7.1.0",
     "vant": "^1.5.1",
     "vue": "^2.5.2",

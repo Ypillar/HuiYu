@@ -113,7 +113,12 @@
         });
       }
     },
-    mounted() {},
+    mounted() {
+      // 首先检查是否登录，未登录向下执行
+      // 检查是否有code，或者检查state也行（微信授权跳回来），有code进入绑定手机号界面，没有向下执行
+      // 没有code，也未登录，检查是否微信授权过，授权直接向服务器，没授权则显示手机号登录
+      //location.href=`${cfg.authUrl}?appid=${cfg.appId}&redirect_uri=${escape('https://www.baidu.com')}&response_type=code&scope=snsapi_userinfo&state=1fd33#wechat_redirect`
+    },
     components: {}
   }
 

@@ -49,7 +49,7 @@
       <div style="padding:30px 0;">
         <!-- 工作流，支持group和select两个参数，select为id -->
         工作流：<br>
-        <workflow v-bind:group="[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}]" select="2"></workflow>
+        <workflow :group="groups" select="2"></workflow>
 
       
         <!-- 结果页面支持iamge图片（static下iamge文件夹），title，子title，描述desc，还支持一个btn的slot -->
@@ -142,7 +142,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      //group:,
+      groups:[{id:1,name:'注册'},{id:2,name:'完善资料'},{id:3,name:'完成'}],
       selected:'my',
       popupVisible:false,
       disbtn:true,

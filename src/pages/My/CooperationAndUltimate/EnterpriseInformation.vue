@@ -1,46 +1,52 @@
 <template>
-  <!-- 认证-服务信息 -->
+  <!-- 认证企业-服务信息 -->
   <div>
     <div class="box padding">
       <p class="reminder">温馨提示：入驻信息仅作为慧宇审核使用，不会向第三方透露，请放心如实填写</p>
       <div class="process">
         <workflow
-          v-bind:group="[{id:1,name:'基本信息'},{id:2,name:'服务信息'},{id:3,name:'认证审核'}]"
+          v-bind:group="[{id:1,name:'基本信息'},{id:2,name:'企业信息'},{id:3,name:'认证审核'}]"
           select="2"
         ></workflow>
       </div>
 
-      <div class="divItem">
+      <div class="divItem padBottom">
         <ul>
           <li>
             <span>
-              服务中心
+              企业名称
               <small class="icon-rad">*</small>
             </span>
-            <input type="text" placeholder="请选择所属区域">
+            <input type="text" placeholder="请输入企业全称">
           </li>
           <li>
             <span>
-              服务顾问
+              联系方式
               <small class="icon-rad">*</small>
             </span>
-            <input type="text" placeholder="请输入服务顾问姓名">
+            <input type="text" placeholder="请选择所属服务中心">
           </li>
           <li>
-            <span>能量顾问</span>
-            <input type="text" placeholder="请输入能量顾问姓名（选填）">
+            <span>
+              常住地区
+              <small class="icon-rad">*</small>
+            </span>
+            <input type="text" placeholder="请输入企业负责人姓名">
           </li>
           <li>
-            <span>合作伙伴</span>
-            <input type="text" placeholder="请输入合作伙伴姓名（选填）">
+            <span>
+              出生年月
+              <small class="icon-rad">*</small>
+            </span>
+            <input type="text" placeholder="请输入企业服务顾问">
           </li>
         </ul>
       </div>
       <div class="idDiv padBottom">
-        <p class="Tit">备注</p>
-        <p class="small">没有涉及到的信息可以通过下方备注区域告知我们</p>
-        <div class="textarea">
-          <textarea name id placeholder="在此处输入..."></textarea>
+        <p class="Tit">身份证件</p>
+        <p class="small">照片须为本人身份证，身份证号须清晰可见且与所填身份证一致</p>
+        <div class="uploadLicense">
+          <img src='../../../assets/imgs/shangchuan@2x.png' alt>
         </div>
       </div>
     </div>
@@ -208,15 +214,15 @@
       border: 1px dashed #999;
       margin: 10px auto 0;
       position: relative;
-      img {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -15px;
-        margin-top: -15px;
-        border: 1px dashed #999;
+      img{
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          left:50%;
+          top:50%;
+          margin-left: -15px;
+          margin-top: -15px;
+           border: 1px dashed #999;
       }
     }
   }
@@ -268,7 +274,7 @@
 </style>
 <script>
 export default {
-  name: "ServiceInformation",
+  name: "EnterpriseInformation",
   data() {
     return {};
   },

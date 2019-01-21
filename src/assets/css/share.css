@@ -128,3 +128,12 @@ line-height:28px;
 .infoContent{
     float: right;
 }
+
+.icon-rad{
+    color: #FF3D29;
+    font-size:1.4rem;   
+    font-family:PingFangSC-Regular;
+    position: absolute;
+    top:-0.3rem;
+    right: -0.6rem;
+}

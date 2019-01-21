@@ -56,9 +56,19 @@
         <span>{{number}}/100</span>
       </div>
     </div>
-    <p class="agreement padBottom">入驻即表示同意<span>《慧宇千城讲师入驻协议》</span></p>
+    <p class="agreement padBottom">
+      入驻即表示同意
+      <span>《慧宇千城讲师入驻协议》</span>
+    </p>
     <div class="footer">
-       <bottom-btn :fixed="true" :disable="false" title="下一步" showService="false" showHome="true" v-on:click="onclick()"></bottom-btn>
+      <bottom-btn
+        :fixed="true"
+        :disable="false"
+        title="下一步"
+        showService="false"
+        showHome="true"
+        v-on:click="onclick()"
+      ></bottom-btn>
     </div>
   </div>
 </template>
@@ -189,9 +199,10 @@
       div {
         width: 48%;
         border-radius: 5px;
+
         img {
           width: 100%;
-          height: 100%;
+          height: 9rem;
         }
         p {
           width: auto;
@@ -208,6 +219,7 @@
       .upImg {
         position: relative;
         border: 1px dashed #999;
+        height: 9rem;
         div {
           width: 100%;
           height: 100%;
@@ -260,18 +272,18 @@
       }
     }
   }
-  .agreement{
-    width:auto;
-height:17px;
-font-size:12px;
-font-family:PingFangSC-Regular;
-font-weight:400;
-color:#999;
-line-height:17px;
-margin:20px 0 10px;
-span{
-  color:#666;
-}
+  .agreement {
+    width: auto;
+    height: 17px;
+    font-size: 12px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #999;
+    line-height: 17px;
+    margin: 20px 0 10px;
+    span {
+      color: #666;
+    }
   }
 }
 </style>

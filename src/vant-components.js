@@ -21,7 +21,9 @@ import {
     NumberKeyboard,
     Tag,
     PullRefresh,
-    List 
+    List,
+    DatetimePicker,
+    Area 
 } from 'vant'
 Vue.use(Button)
 .use(NavBar)
@@ -45,6 +47,8 @@ Vue.use(Button)
 .use(Tag )
 .use(PullRefresh)
 .use(List )
+.use(DatetimePicker)
+.use(Area)
 export default {
    
 }

@@ -16,6 +16,8 @@ import cache from './share/cache';
 import forward from './share/forward'
 // import validate from './share/validate'
 
+import _ from 'lodash'
+window._ = _;
 
 Vue.use(VueResource);
 // Vue.use(MintUI);
@@ -51,6 +53,12 @@ Vue.http.interceptors.push((request, next)  =>{
     return response;  
   });  
 });  
+
+Vue.directive('title', {
+  inserted: function (el, binding) {
+    document.title = el.dataset.title
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({

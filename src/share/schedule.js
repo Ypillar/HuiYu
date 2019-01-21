@@ -58,7 +58,8 @@ class Task {
     
     destroy(){
         this._isDestory=true;
-        Tasks = Tasks.filter(o=>!o._isDestory);
+        //Tasks = Tasks.filter(o=>!o._isDestory);
+        Tasks = _.filter(Tasks,o=>!o._isDestory)
     }
 }
 function schedule(){
@@ -74,7 +75,7 @@ function schedule(){
     //console.log("调度任务执行end");
 }
 function addTask(opt){
-    let task = Tasks.find(o=>o.getGuid()===opt.guid);
+    let task = _.find(Tasks, o=>o.getGuid()===opt.guid);
     if(task){
         // 重复的任务
         console.warn("试图添加重复的任务，清空之前的任务");
@@ -88,7 +89,7 @@ function addTask(opt){
 }
 function removeTask(guidOrTask){
     if(typeof guidOrTask ==="string"){
-        guidOrTask = Tasks.find(o=>o.guid===guidOrTask);
+        guidOrTask = _.find(Tasks, o=>o.guid===guidOrTask);
     }
     if(guidOrTask)guidOrTask.destroy();
 }

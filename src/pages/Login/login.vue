@@ -4,9 +4,9 @@
  * @Description: 手机号码登录
  -->
 <template>
-  <div class="center">
+  <div class="center relative overflow-hidden" >
     <title-bar title="登陆" :back="true"></title-bar>
-    <div class="bg-img absolute"></div>
+    <!--  -->
     <div class="logo">
       <img src="../../assets/imgs/logo.png" />
     </div>
@@ -14,7 +14,6 @@
       {{appName}}
     </div>
     <div class="login-info">
-
       <div style="margin-top:20px;">
         <van-cell-group>
           <van-field v-model="mobile" placeholder="请输入手机号" type="tel" maxlength="11">
@@ -44,10 +43,11 @@
     <div style="margin-top:20px;">
       <img src="../../assets/imgs/weixindenglu@2x.png" style="width:60px;height:60px;">
     </div>
-    <div class="center absolute" style="bottom:10px;width:100%;font-size:12px;">
+    <div class="center" style="width:100%;font-size:12px;margin:20px;">
       <div class="inline-block" style="color:#999">登录即表示同意</div>
       <div class="inline-block" style="color:#333">《慧宇千城用户协议》</div>
     </div>
+    <div class="bg-img absolute"></div>
   </div>
 </template>
 
@@ -113,7 +113,12 @@
         });
       }
     },
-    mounted() {},
+    mounted() {
+      // 首先检查是否登录，未登录向下执行
+      // 检查是否有code，或者检查state也行（微信授权跳回来），有code进入绑定手机号界面，没有向下执行
+      // 没有code，也未登录，检查是否微信授权过，授权直接向服务器，没授权则显示手机号登录
+      //location.href=`${cfg.authUrl}?appid=${cfg.appId}&redirect_uri=${escape('https://www.baidu.com')}&response_type=code&scope=snsapi_userinfo&state=1fd33#wechat_redirect`
+    },
     components: {}
   }
 
@@ -122,7 +127,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .bg-img {
-    margin-top: 100px;
+    top:160px;
     background: url(../../assets/imgs/denglu_bj@2x.png)no-repeat;
     background-size: 100% auto;
     width: 100%;

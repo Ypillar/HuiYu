@@ -11,7 +11,9 @@
 let memory={
     _items:[],
     getItem:function(name){
-        return (this._items.find(i=>i.name===name)).value;
+        if(this.exists(name))
+            return (_.find(this._items, o=>i=>i.name===name)).value;
+        else return null;
     },
     setItem:function(name,value){
         if(this.exists(name)){
@@ -20,10 +22,10 @@ let memory={
         this._items.push({name:name,value:value});
     },
     exists:function(name){
-        return !!this._items.find(i=>i.name===name);
+        return !!_.find(this._items, o=>i=>i.name===name);
     },
     removeItem:function(name){
-        let i = this._items.findIndex(i=>i.name===name);
+        let i = _.findIndex(this._items, i=>i.name===name);
         if(i!==-1){
             this._items.splice(i,1);
         }

@@ -115,6 +115,8 @@ line-height:28px;
     line-height:18px;
 }
 
+.overflow-hidden{overflow: hidden;}
+
 .info-cell{
     font-size:14px;
     font-weight:400;

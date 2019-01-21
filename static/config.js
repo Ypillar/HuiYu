@@ -7,8 +7,8 @@ window.cfg={
     sessionKey:"devicemgr_token",
     debug:true,
 
-    refresh_device_status:10, // 刷新板子在线状态，单位秒
-    refresh_imsi_status:60, // 刷新imsi采集状态，单位秒
-
-    
+    // appid
+    appId:"wxaef7fa6d4b9a6de1",
+    // appsecret:"ba397ed91ba156432b2fef76cada1917"
+    authUrl:"https://open.weixin.qq.com/connect/oauth2/authorize" 
 }

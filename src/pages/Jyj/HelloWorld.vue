@@ -40,10 +40,14 @@
         <div slot="right">
           <!-- 右上角要放自己的按钮，或其他html，放这里，比如这里放了一个消息组件 -->
           <!-- 消息组件支持文字标题、图标颜色自定义 -->
-          <messager title="" color="black"></messager>
+          <div class="inline-block" style="height:20px;line-height:20px;">
+            <messager color="black"></messager>
+          </div>
         </div>
       </title-bar>
-
+<messager color="black"></messager>
+<messager color="black"></messager>
+<messager color="black"></messager>
         所有自定义组件请注意看prop前加没加冒号":",跟我保持一致就行了
 
       <div style="padding:30px 0;">

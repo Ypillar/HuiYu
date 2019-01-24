@@ -4,12 +4,12 @@
  * @Description: 消息组件，支持title显示到图标下方，支持color改变图标颜色
  -->
 <template>
-  <div class="page center inline-block">
+  <div class="messager center inline-block relative">
+    <div v-if="hasMsg" class="point absolute"></div>
     <div class="icon">
-        <div v-if="hasMsg" class="point"></div>
         <i class="pointer icon fa fa-bell-o" :style="{color:color?color:'white'}" @click="goMsgPage()" aria-hidden="true"></i> 
     </div>
-    <div>{{title}}</div>
+    <!-- <div>{{title}}</div> -->
   </div>
 </template>
 
@@ -18,7 +18,7 @@
 export default {
   name: 'Messager',
   // back为false时不显示返回按钮
-  props: ['title','color'],
+  props: ['color'],
   data () {
     return {
         hasMsg:true
@@ -40,22 +40,29 @@ export default {
 </script>
 
 <style scoped>
-.page .icon{
-  height:30px;
-    position: relative;
+.messager{
+  width: 19x;
+  height: 19px;
 }
-.page .icon>i{
-    font-size: 20px;
+.messager .icon{
+  height:18px;
+  width: 18px;
+  top: 0px;
+  /* width: 20px; */
+}
+.messager .icon>i{
+    font-size: 18px;
 }
 .point{
     position: absolute;
+    top:0;
     z-index: 2;
     width: 8px;
     height:8px;
     background-color: red;
     border-radius: 20px;
     right: 0;
-    top:10px;
+    /* top:10px; */
 }
  
 </style>

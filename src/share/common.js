@@ -12,36 +12,42 @@ import schedule from './schedule';
 // import { Toast,MessageBox,Indicator   } from 'mint-ui';
 // import { Loading } from 'element-ui';
 import { Toast,Dialog } from 'vant';
+import des3 from './des3';
+
 Vue.use(Toast);
 Vue.use(Dialog)
 
 let loading=null;
 // let loadingInstance = null;
 export default{
-    // http
+    /**
+     * 
+     * @param {*} url 请求接口，例如/Coupon/getCouponStatusList
+     * @param {*} data post的参数
+     * @param {*} success 成功回调
+     * @param {*} error 错误回调
+     * @param {*} noMask 为true不显示遮罩动画
+     * @param {*} silent 为true时，即便是错误也自动不提示错误信息
+     */
     httpPost:function(url,data,success,error,noMask,silent){
         var that = this;
-        if(!noMask)this.showMask();
+        if(!noMask)that.loading();
         Vue.http.post(cfg.httpAddr+url,data).then(response=>{
-            if(!noMask)this.hideMask();
+            if(!noMask)that.loaded();
             let res = response.body;
-            if(res.code>=1000 && res.code<9000){
+            if(res.code===200){
                 success && success(res);  
             }else{
                 if(!silent){
-                    Vue.prototype.$message({
-                        message: res.msg,
-                        type: 'warning'
-                    });
+                    that.msgError(res.msg);
                 }
                 error && error(res);
             }
         }).catch(response=>{
-            if(!noMask)this.hideMask();
-            console.log(response)
+            if(!noMask)that.loaded();
             if(!silent){
                 if(response.status===401){
-                    that.msgWarning('未登录或已过期, 请重新登录');
+                    that.msgError('未登录或已过期, 请重新登录');
                 }else
                     that.msgError((response.status||'错误')+': '+(response.body===''?response.body:'运行错误'));
             }
@@ -126,6 +132,15 @@ export default{
     },
 
     // 其他类型工具函数
+    // 3des解密
+    decrypt:function(cipherText){
+        console.log(des3)
+        return des3.decrypt(cipherText);
+    },
+    // 3des加密
+    encrypt:function(text){
+        return des3.encrypt(text);
+    },
     debug:function(){
         if(cfg.debug)console.debug.apply(console,arguments);
     },
